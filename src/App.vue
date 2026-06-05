@@ -5,6 +5,7 @@ import { useVisibility } from './composables/useVisibility'
 import { useFavorites } from './composables/useFavorites'
 import { resolveParameter, plateUnsupported, nozzleWarnings } from './lib/resolve'
 import { searchCombos } from './lib/search'
+import { collectSources } from './lib/sources'
 
 const { plates, materials, parameters, products, nozzleSizes, nozzleTypes } = useCatalog()
 const { isVisible, toggle } = useVisibility(parameters)
@@ -26,6 +27,8 @@ const nozzleSize = ref(nozzleSizes.includes(0.4) ? 0.4 : nozzleSizes[0])
 const nozzleType = ref(nozzleTypes[0]?.id)
 const highFlowNozzle = ref(false)
 const showSettings = ref(false)
+const view = ref('lookup')
+const sourceGroups = collectSources(products)
 
 const query = ref('')
 const searchFocused = ref(false)
@@ -148,11 +151,17 @@ function formatValue(param, value) {
   <div class="app">
     <header>
       <h1>Bambu Cheat Sheet</h1>
-      <button class="ghost" @click="showSettings = !showSettings">
-        {{ showSettings ? 'Done' : 'Parameters' }}
-      </button>
+      <div class="nav">
+        <button class="ghost" @click="view = view === 'sources' ? 'lookup' : 'sources'">
+          {{ view === 'sources' ? '← Back' : 'Sources' }}
+        </button>
+        <button v-if="view === 'lookup'" class="ghost" @click="showSettings = !showSettings">
+          {{ showSettings ? 'Done' : 'Parameters' }}
+        </button>
+      </div>
     </header>
 
+    <template v-if="view === 'lookup'">
     <section v-if="showSettings" class="settings card">
       <h2>Show parameters</h2>
       <label v-for="p in parameters" :key="p.key" class="check">
@@ -284,6 +293,26 @@ function formatValue(param, value) {
 
       <p class="legend">“—” means no data from the listed sources (unknown) — not “none”.</p>
     </template>
+    </template>
+
+    <section v-else class="card sources-page">
+      <h2>Data sources</h2>
+      <p class="sources-intro">
+        Every value in the app links to its own source. This is the consolidated,
+        de-duplicated overview of where the data comes from, grouped by website.
+      </p>
+      <div v-for="g in sourceGroups" :key="g.host" class="source-group">
+        <h3>
+          <a :href="'https://' + g.host" target="_blank" rel="noopener">{{ g.host }}</a>
+          <span class="count">{{ g.productCount }} {{ g.productCount === 1 ? 'product' : 'products' }}</span>
+        </h3>
+        <ul>
+          <li v-for="l in g.links" :key="l.label">
+            <a :href="l.url" target="_blank" rel="noopener">{{ l.label }}</a>
+          </li>
+        </ul>
+      </div>
+    </section>
 
     <footer>
       <p>Reference only — not for direct printer use. Always verify against the manufacturer.</p>
