@@ -1,0 +1,18 @@
+id: esun-abs
+manufacturer: eSun
+name: ABS
+material: ABS
+
+sources:
+  - source:
+      label: eSun ABS Product Page
+      url: https://www.esun3d.com/abs-product/
+    nozzleTemp: { min: 230, max: 270 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 95, max: 110 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

@@ -1,0 +1,14 @@
+id: hatchbox-pla-matte
+manufacturer: HATCHBOX
+name: Matte PLA
+material: PLA
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B09G7BXN2J
+    nozzleTemp: { min: 210, max: 230 }
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

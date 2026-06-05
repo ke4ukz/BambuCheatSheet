@@ -1,0 +1,19 @@
+id: polymaker-wood-pla
+manufacturer: Polymaker
+name: Polymaker Wood PLA
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-wood-pla
+    nozzleTemp: { min: 190, max: 210 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "55°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 50 } # generic bed temp
+        adhesion: { required: false, types: [] }

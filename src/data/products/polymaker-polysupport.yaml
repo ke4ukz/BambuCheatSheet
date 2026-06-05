@@ -1,0 +1,22 @@
+id: polymaker-polysupport
+manufacturer: Polymaker
+name: PolySupport
+material: Other
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/specialty-filament/polysupport-tm-for-pla
+    nozzleTemp: { min: 220, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "55°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polysupport-for-pla

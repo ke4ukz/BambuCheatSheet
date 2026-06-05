@@ -1,0 +1,24 @@
+id: polymaker-pc-abs
+manufacturer: Polymaker
+name: Polymaker PC-ABS
+material: Other
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-pc-abs
+    nozzleTemp: { min: 250, max: 270 }
+    chamberTemp: { min: 90, max: 105 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "75°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 105 } # generic bed temp
+        adhesion: { required: true, types: [liquid-glue] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false

@@ -1,0 +1,18 @@
+id: polymaker-polyflex-tpu95-hf
+manufacturer: Polymaker
+name: PolyFlex TPU95-HF
+material: TPU
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polyflex-tpu95-hf
+    nozzleTemp: { min: 200, max: 220 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "70°C for 8h (only if material has absorbed moisture)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 50 } # generic bed temp
+        adhesion: { required: false, types: [] }

@@ -1,0 +1,23 @@
+id: polymaker-fiberon-asa-cf
+manufacturer: Polymaker
+name: Fiberon ASA-CF08
+material: ASA
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/fiberon-asa-cf08
+    nozzleTemp: { min: 260, max: 280 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    dryBeforeUse: "90°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 100 } # generic bed temp
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false

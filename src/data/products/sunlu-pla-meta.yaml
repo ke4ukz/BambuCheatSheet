@@ -1,0 +1,18 @@
+id: sunlu-pla-meta
+manufacturer: SUNLU
+name: PLA Meta
+material: PLA
+
+sources:
+  - source:
+      label: SUNLU — What is PLA Meta and How to Print with It
+      url: https://store.sunlu.com/blogs/products-knowledge/what-is-sunlu-pla-meta-and-how-to-print-with-it
+    nozzleTemp: { min: 185, max: 225 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 65 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

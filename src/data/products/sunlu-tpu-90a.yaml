@@ -1,0 +1,20 @@
+id: sunlu-tpu-90a
+manufacturer: SUNLU
+name: TPU 90A
+material: TPU
+
+sources:
+  - source:
+      label: SUNLU TDS SL-TE-WI-120 (TPU 90A)
+      url: https://www.sunlu.com/public/upload/file/20260325/0ddd5d28-710b-46d6-bf63-669309b8cb7b.pdf?filename=TDS%28English%29
+    nozzleTemp: { min: 220, max: 240 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "60–70°C"
+    amsCompatible: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 60 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

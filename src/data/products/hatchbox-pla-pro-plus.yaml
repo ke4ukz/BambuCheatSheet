@@ -1,0 +1,14 @@
+id: hatchbox-pla-pro-plus
+manufacturer: HATCHBOX
+name: PLA PRO+
+material: PLA
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B0BM56Y1QK
+    nozzleTemp: { min: 190, max: 220 }
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

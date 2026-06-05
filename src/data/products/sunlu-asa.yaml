@@ -1,0 +1,19 @@
+id: sunlu-asa
+manufacturer: SUNLU
+name: ASA
+material: ASA
+
+sources:
+  - source:
+      label: SUNLU — What is ASA Filament?
+      url: https://store.sunlu.com/blogs/products-knowledge/what-is-asa-filament
+    nozzleTemp: { min: 245, max: 255 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "Dry before use — ASA is hygroscopic"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick, kapton-tape] }
+        # generic bed temp (manufacturer doesn't specify plate)

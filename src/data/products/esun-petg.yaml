@@ -1,0 +1,19 @@
+id: esun-petg
+manufacturer: eSun
+name: PETG
+material: PETG
+
+sources:
+  - source:
+      label: eSun PETG Product Page
+      url: https://www.esun3d.com/petg-product/
+    nozzleTemp: { min: 240, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "60°C for 4h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 75, max: 90 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

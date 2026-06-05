@@ -1,0 +1,16 @@
+id: overture-asa
+manufacturer: Overture
+name: ASA
+material: ASA
+
+sources:
+  - source:
+      label: Overture ASA Product Page
+      url: https://www.overture3d.com/products/overture-asa-filament-1-75mm
+    nozzleTemp: { min: 240, max: 270 }
+    dryBeforeUse: "75°C for 7h"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 70, max: 95 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

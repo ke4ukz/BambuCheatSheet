@@ -1,0 +1,18 @@
+id: sunlu-pla-plus
+manufacturer: SUNLU
+name: PLA+ 2.0
+material: PLA
+
+sources:
+  - source:
+      label: SUNLU PLA+ 2.0 Product Page
+      url: https://www.sunlu.com/products/pla-plus-2-0-filament
+    nozzleTemp: { min: 205, max: 245 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 60 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

@@ -1,0 +1,14 @@
+id: hatchbox-tpu-95a
+manufacturer: HATCHBOX
+name: TPU 95A
+material: TPU
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B07P1BDCH6
+    nozzleTemp: { min: 190, max: 235 }
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

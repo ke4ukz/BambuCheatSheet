@@ -1,0 +1,20 @@
+id: sunlu-pla-high-speed
+manufacturer: SUNLU
+name: High Speed PLA
+material: PLA
+
+sources:
+  - source:
+      label: SUNLU High Speed PLA 5KG Product Page
+      url: https://store.sunlu.com/products/high-speed-pla-large-spool-3d-printer-filament-5kg
+    nozzleTemp: { min: 190, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    maxVolumetricSpeed: 30
+    dryBeforeUse: "65°C for 8h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 75 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

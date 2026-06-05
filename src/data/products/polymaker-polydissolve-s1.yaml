@@ -1,0 +1,22 @@
+id: polymaker-polydissolve-s1
+manufacturer: Polymaker
+name: PolyDissolve S1
+material: PVA
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/specialty-filament/polydissolve-tm-s1
+    nozzleTemp: { min: 215, max: 225 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polydissolve-s1
+    dryBeforeUse: "80°C for 12h (only if material has absorbed moisture)"
+    amsCompatible: true

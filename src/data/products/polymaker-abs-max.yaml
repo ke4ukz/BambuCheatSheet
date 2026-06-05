@@ -1,0 +1,24 @@
+id: polymaker-abs-max
+manufacturer: Polymaker
+name: Polymaker ABS Max
+material: ABS
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-abs-max
+    nozzleTemp: { min: 270, max: 300 }
+    chamberTemp: 65
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "70°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: 120 # generic bed temp
+        adhesion: { required: true, types: [liquid-glue] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false

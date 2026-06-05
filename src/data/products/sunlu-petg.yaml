@@ -1,0 +1,18 @@
+id: sunlu-petg
+manufacturer: SUNLU
+name: PETG
+material: PETG
+
+sources:
+  - source:
+      label: SUNLU PETG Product Page
+      url: https://www.sunlu.com/products/petg-3d-printing-filament
+    nozzleTemp: { min: 240, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 60, max: 70 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

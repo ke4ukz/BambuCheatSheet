@@ -1,0 +1,19 @@
+id: esun-etpu-95a
+manufacturer: eSun
+name: eTPU-95A
+material: TPU
+
+sources:
+  - source:
+      label: eSun eTPU-95A Product Page
+      url: https://www.esun3d.com/etpu-95a-product/
+    nozzleTemp: { min: 220, max: 250 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "55°C for 4h+"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 45, max: 60 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

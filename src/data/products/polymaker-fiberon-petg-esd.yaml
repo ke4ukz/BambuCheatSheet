@@ -1,0 +1,25 @@
+id: polymaker-fiberon-petg-esd
+manufacturer: Polymaker
+name: Fiberon PETG-ESD
+material: PETG
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/fiberon-tm/fiberon-tm-petg-esd
+    nozzleTemp: { min: 250, max: 290 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 70, max: 80 } # generic bed temp
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/fiberon-petg-esd

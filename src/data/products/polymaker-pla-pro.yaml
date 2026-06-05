@@ -1,0 +1,21 @@
+id: polymaker-pla-pro
+manufacturer: Polymaker
+name: Polymaker PLA Pro
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/prime-materials/functional-pla/polymaker-tm-pla-pro-new
+    nozzleTemp: { min: 210, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 60 } # generic bed temp
+        adhesion: { required: false, types: [] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-pla-pro
+    amsCompatible: true

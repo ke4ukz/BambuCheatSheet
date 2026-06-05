@@ -1,0 +1,20 @@
+id: sunlu-tpu-95a
+manufacturer: SUNLU
+name: TPU 95A
+material: TPU
+
+sources:
+  - source:
+      label: SUNLU TDS SL-TE-WI-088 (TPU 95A)
+      url: https://www.sunlu.com/public/upload/file/20260325/63ee2ce0-c5c6-4c70-a2fe-2044388f38bf.pdf?filename=TDS%28English%29
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "50–60°C"
+    amsCompatible: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 60 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

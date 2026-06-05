@@ -1,0 +1,18 @@
+id: sunlu-pla
+manufacturer: SUNLU
+name: PLA
+material: PLA
+
+sources:
+  - source:
+      label: SUNLU PLA Product Page
+      url: https://www.sunlu.com/products/pla-3d-printing-filament
+    nozzleTemp: { min: 200, max: 240 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 60 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

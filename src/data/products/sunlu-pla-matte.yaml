@@ -1,0 +1,18 @@
+id: sunlu-pla-matte
+manufacturer: SUNLU
+name: PLA Matte
+material: PLA
+
+sources:
+  - source:
+      label: SUNLU 3D Filament Guide — Matte PLA
+      url: https://uk.store.sunlu.com/blogs/3d-printing-guide/sunlu-3d-filament-guide-2025-tailored-tips-for-beginners-hobbyists-artists-makers-and-engineers
+    nozzleTemp: { min: 205, max: 215 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 60 }
+        adhesion: { required: false, types: [] }
+        # generic bed temp (manufacturer doesn't specify plate)

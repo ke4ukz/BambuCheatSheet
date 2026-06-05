@@ -1,0 +1,26 @@
+id: polymaker-panchroma-cope
+manufacturer: Polymaker
+name: Panchroma CoPE
+material: Other
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/panchroma-tm/panchroma-tm-cope
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "55°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp
+        adhesion: { required: true, types: [liquid-glue] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/panchroma-cope

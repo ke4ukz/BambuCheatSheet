@@ -1,0 +1,23 @@
+id: polymaker-fiberon-pps-cf
+manufacturer: Polymaker
+name: Fiberon PPS-CF10
+material: Other
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/fiberon-pps-cf10
+    nozzleTemp: { min: 310, max: 350 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    dryBeforeUse: "100°C for 10h (only if material has absorbed moisture)"
+    amsCompatible: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 90 } # generic bed temp
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false

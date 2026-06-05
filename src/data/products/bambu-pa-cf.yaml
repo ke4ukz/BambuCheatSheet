@@ -1,0 +1,43 @@
+id: bambu-pa-cf
+manufacturer: Bambu Lab
+name: PA-CF
+material: PA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PA-CF%20%40base.json
+    # nozzle_temperature: 280 in @base; machine profiles (X1C, H2D, P2S, X2D) all use 290
+    nozzleTemp: 290
+    firstLayerNozzleTemp: 290
+    # required_nozzle_HRC: 40 inherited from fdm_filament_pa parent — hardened nozzle required; CF is abrasive
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    # filament_max_volumetric_speed: 8 (set in machine profiles)
+    maxVolumetricSpeed: 8
+    enclosureRequired: true
+  - source:
+      label: Bambu Lab (BambuStudio H2D machine profile)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PA-CF%20%40BBL%20H2D.json
+    # chamber_temperatures: 60 (set in machine profiles X1C, H2D, P2S, X2D)
+    chamberTemp: 60
+  - source:
+      label: Bambu Lab (BambuStudio parent profile fdm_filament_pa)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/fdm_filament_pa.json
+    # cool_plate_temp: 0, eng_plate_temp: 100, textured_plate_temp: 100, supertack_plate_temp: 0
+    plates:
+      textured-pei:
+        bedTemp: 100
+        firstLayerBedTemp: 100
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        # cool_plate_temp: 0 in fdm_filament_pa parent — not supported
+        supported: false
+      supertack:
+        # supertack_plate_temp: 0 in fdm_filament_pa parent — not supported
+        supported: false
+      engineering:
+        bedTemp: 100
+        firstLayerBedTemp: 100
+        adhesion: { required: true, types: [glue-stick] }

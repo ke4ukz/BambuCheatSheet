@@ -1,0 +1,22 @@
+id: polymaker-polycast
+manufacturer: Polymaker
+name: PolyCast
+material: Other
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/specialty-filament/polycast-tm-pvb
+    nozzleTemp: { min: 190, max: 220 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "50°C for 12h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 70 } # generic bed temp
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polycast

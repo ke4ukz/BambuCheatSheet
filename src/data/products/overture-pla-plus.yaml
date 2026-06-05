@@ -1,0 +1,15 @@
+id: overture-pla-plus
+manufacturer: Overture
+name: PLA+
+material: PLA
+
+sources:
+  - source:
+      label: Overture PLA+ Product Page
+      url: https://www.overture3d.com/products/overture-pla-plus-3d-printer-filament-1-75mm
+    nozzleTemp: { min: 190, max: 230 }
+    dryBeforeUse: "55°C for 4h (only if opened for a long time or stored in a humid environment)"
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 60 } # generic bed temp (manufacturer doesn't specify plate); spec table shows 25-26°C but FAQ recommends 50-60°C
+        adhesion: { required: false, types: [] }

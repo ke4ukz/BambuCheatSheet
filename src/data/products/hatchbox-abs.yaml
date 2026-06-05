@@ -1,0 +1,14 @@
+id: hatchbox-abs
+manufacturer: HATCHBOX
+name: ABS
+material: ABS
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B00J0H6NNM
+    nozzleTemp: { min: 210, max: 240 }
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

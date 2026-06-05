@@ -1,0 +1,19 @@
+id: esun-pla-basic
+manufacturer: eSun
+name: PLA Basic
+material: PLA
+
+sources:
+  - source:
+      label: eSun PLA-Basic Product Page
+      url: https://www.esun3d.com/pla-basic-product/
+    nozzleTemp: { min: 210, max: 230 }
+    maxVolumetricSpeed: 30
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 45, max: 60 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

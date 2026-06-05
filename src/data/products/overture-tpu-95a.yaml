@@ -1,0 +1,16 @@
+id: overture-tpu-95a
+manufacturer: Overture
+name: TPU 95A
+material: TPU
+
+sources:
+  - source:
+      label: Overture TPU 95A Product Page
+      url: https://www.overture3d.com/products/overture-tpu
+    nozzleTemp: { min: 210, max: 230 }
+    dryBeforeUse: "70°C for 7h"
+    amsCompatible: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

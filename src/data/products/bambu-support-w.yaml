@@ -1,0 +1,41 @@
+id: bambu-support-w
+manufacturer: Bambu Lab
+name: Support W
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20Support%20W%20%40base.json
+    # nozzle_temperature: 220 (set in machine profiles X1C, A1, H2D)
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    # filament_max_volumetric_speed: 12 (set in X1C machine profile)
+    maxVolumetricSpeed: 12
+    enclosureRequired: false
+    # cool_plate_temp: 40 (explicit in @base — overrides fdm_filament_pla's 35)
+    plates:
+      cool-plate:
+        bedTemp: 40
+        firstLayerBedTemp: 40
+  - source:
+      label: Bambu Lab (BambuStudio parent profile fdm_filament_pla)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/fdm_filament_pla.json
+    # textured_plate_temp: 55 (inherited from fdm_filament_pla), eng_plate_temp: 0 (not supported)
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+      engineering:
+        # eng_plate_temp: 0 in fdm_filament_pla parent — not supported
+        supported: false
+  - source:
+      label: Bambu Lab (BambuStudio H2D machine profile)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20Support%20W%20%40BBL%20H2D.json
+    # supertack_plate_temp: 40 (explicit in H2D machine profile)
+    plates:
+      supertack:
+        bedTemp: 40
+        firstLayerBedTemp: 40

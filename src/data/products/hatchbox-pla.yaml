@@ -1,0 +1,15 @@
+id: hatchbox-pla
+manufacturer: HATCHBOX
+name: PLA
+material: PLA
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B00J0GMMP6
+    nozzleTemp: { min: 180, max: 210 }
+    # "without the use of a heated bed" — manufacturer states no heated bed required
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

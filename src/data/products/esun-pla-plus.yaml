@@ -1,0 +1,18 @@
+id: esun-pla-plus
+manufacturer: eSun
+name: PLA+
+material: PLA
+
+sources:
+  - source:
+      label: eSun PLA+ Product Page
+      url: https://www.esun3d.com/pla-pro-product/
+    nozzleTemp: { min: 210, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 45, max: 60 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

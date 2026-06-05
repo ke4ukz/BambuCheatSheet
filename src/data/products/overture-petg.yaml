@@ -1,0 +1,15 @@
+id: overture-petg
+manufacturer: Overture
+name: PETG
+material: PETG
+
+sources:
+  - source:
+      label: Overture PETG Product Page
+      url: https://www.overture3d.com/products/overture-petg
+    nozzleTemp: { min: 230, max: 260 }
+    dryBeforeUse: "60°C for 5h (do not exceed recommended time; over-drying can cause brittleness)"
+    plates:
+      textured-pei:
+        bedTemp: { min: 65, max: 70 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [glue-stick, hairspray] }

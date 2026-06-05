@@ -1,0 +1,15 @@
+id: overture-matte-pla
+manufacturer: Overture
+name: Matte PLA
+material: PLA
+
+sources:
+  - source:
+      label: Overture Matte PLA Product Page
+      url: https://www.overture3d.com/products/overture-matte-pla
+    nozzleTemp: { min: 190, max: 230 }
+    dryBeforeUse: "50°C for 7h"
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 70 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

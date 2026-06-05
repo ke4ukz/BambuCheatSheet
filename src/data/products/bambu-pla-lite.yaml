@@ -1,0 +1,45 @@
+id: bambu-pla-lite
+manufacturer: Bambu Lab
+name: PLA Lite
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Lite%20%40base.json
+    # nozzle_temperature: 210 (explicit in @base, overridden to 220 in machine profiles for X1C/A1)
+    nozzleTemp: 210
+    firstLayerNozzleTemp: 210
+    # required_nozzle_HRC not set in @base or fdm_filament_pla parent — standard nozzle
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    # filament_max_volumetric_speed: 16 (set in @base)
+    maxVolumetricSpeed: 16
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab (BambuStudio parent profile fdm_filament_pla)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/fdm_filament_pla.json
+    # cool_plate_temp: 35, textured_plate_temp: 55, eng_plate_temp: 0 (not supported)
+    # supertack_plate_temp not in parent; machine profile H2D sets supertack: 40
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      engineering:
+        # eng_plate_temp: 0 in fdm_filament_pla parent — not supported
+        supported: false
+  - source:
+      label: Bambu Lab (BambuStudio H2D machine profile)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Lite%20%40BBL%20H2D.json
+    # supertack_plate_temp: 40 (explicit in H2D machine profile)
+    plates:
+      supertack:
+        bedTemp: 40
+        firstLayerBedTemp: 40
+        adhesion: { required: false, types: [] }

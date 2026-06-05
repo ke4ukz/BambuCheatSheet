@@ -1,0 +1,18 @@
+id: overture-easy-nylon
+manufacturer: Overture
+name: Easy Nylon
+material: PA
+
+sources:
+  - source:
+      label: Overture Easy Nylon Product Page
+      url: https://www.overture3d.com/products/easy-nylon-filament
+    nozzleTemp: { min: 245, max: 260 }
+    dryBeforeUse: "95°C for 7h"
+    hardenedNozzleRequired: true
+    abrasive: true
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: 50 # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: true, types: [liquid-glue] }

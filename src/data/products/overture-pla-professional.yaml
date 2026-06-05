@@ -1,0 +1,15 @@
+id: overture-pla-professional
+manufacturer: Overture
+name: PLA Professional
+material: PLA
+
+sources:
+  - source:
+      label: Overture PLA Professional Product Page
+      url: https://www.overture3d.com/products/overture-pla-professional-3d-printer-filament-1-75mm
+    nozzleTemp: { min: 190, max: 220 }
+    dryBeforeUse: "50°C for 7h"
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

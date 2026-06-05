@@ -1,0 +1,16 @@
+id: overture-rock-pla
+manufacturer: Overture
+name: Rock PLA
+material: PLA
+
+sources:
+  - source:
+      label: Overture Rock PLA Product Page
+      url: https://www.overture3d.com/products/overture-rock-pla-filament-1-75mm
+    nozzleTemp: { min: 190, max: 230 }
+    dryBeforeUse: "50°C for 7h"
+    abrasive: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 50, max: 70 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

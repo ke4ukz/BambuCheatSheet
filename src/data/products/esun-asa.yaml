@@ -1,0 +1,18 @@
+id: esun-asa
+manufacturer: eSun
+name: ASA
+material: ASA
+
+sources:
+  - source:
+      label: eSun ASA Product Page
+      url: https://www.esun3d.com/easa-product/
+    nozzleTemp: { min: 240, max: 270 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 110 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

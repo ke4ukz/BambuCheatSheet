@@ -1,0 +1,18 @@
+id: esun-pla-plus-hs
+manufacturer: eSun
+name: PLA+HS
+material: PLA
+
+sources:
+  - source:
+      label: eSun PLA+HS Product Page
+      url: https://www.esun3d.com/eplahs-product/
+    nozzleTemp: { min: 210, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 45, max: 60 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

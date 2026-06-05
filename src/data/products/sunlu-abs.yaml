@@ -1,0 +1,19 @@
+id: sunlu-abs
+manufacturer: SUNLU
+name: ABS
+material: ABS
+
+sources:
+  - source:
+      label: SUNLU — All You Need to Know about ABS Filament
+      url: https://store.sunlu.com/blogs/products-knowledge/all-you-need-to-know-about-abs-filament-and-3d-printing
+    nozzleTemp: { min: 250, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "80°C for at least 2h"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 110 }
+        adhesion: { required: true, types: [glue-stick, hairspray] }
+        # generic bed temp (manufacturer doesn't specify plate)

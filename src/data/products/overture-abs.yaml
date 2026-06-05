@@ -1,0 +1,16 @@
+id: overture-abs
+manufacturer: Overture
+name: ABS
+material: ABS
+
+sources:
+  - source:
+      label: Overture ABS Product Page
+      url: https://www.overture3d.com/products/overture-abs-filament-1-75mm
+    nozzleTemp: { min: 245, max: 265 }
+    dryBeforeUse: "75°C for 7h"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

@@ -1,0 +1,15 @@
+id: overture-pla
+manufacturer: Overture
+name: PLA
+material: PLA
+
+sources:
+  - source:
+      label: Overture PLA Product Page
+      url: https://www.overture3d.com/products/overture-pla
+    nozzleTemp: { min: 190, max: 220 }
+    dryBeforeUse: "50°C for 7h"
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

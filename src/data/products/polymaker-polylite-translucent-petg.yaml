@@ -1,0 +1,19 @@
+id: polymaker-polylite-translucent-petg
+manufacturer: Polymaker
+name: PolyLite Translucent PETG
+material: PETG
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polylite-translucent-petg
+    nozzleTemp: { min: 230, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "65°C for 6h (only if material has absorbed moisture)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 70, max: 80 } # generic bed temp
+        adhesion: { required: false, types: [] }

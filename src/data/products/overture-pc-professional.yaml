@@ -1,0 +1,16 @@
+id: overture-pc-professional
+manufacturer: Overture
+name: PC Professional
+material: PC
+
+sources:
+  - source:
+      label: Overture PC Professional Product Page
+      url: https://www.overture3d.com/products/overture-pc-professional-filament
+    nozzleTemp: { min: 250, max: 270 }
+    dryBeforeUse: "75°C for 7h"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 105 } # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

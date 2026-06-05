@@ -1,0 +1,26 @@
+id: polymaker-fiberon-pa612-esd
+manufacturer: Polymaker
+name: Fiberon PA612-ESD
+material: PA
+
+sources:
+  - source:
+      label: Polymaker Wiki
+      url: https://wiki.polymaker.com/polymaker-products/polymaker-filaments/fiberon-tm/fiberon-tm-pa612-esd
+    nozzleTemp: { min: 280, max: 300 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    dryBeforeUse: "use a heated filament dryer throughout entire print"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 40, max: 50 } # generic bed temp
+        adhesion: { required: false, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/fiberon-pa612-esd

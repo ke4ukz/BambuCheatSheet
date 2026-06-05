@@ -1,0 +1,18 @@
+id: polymaker-ht-pla-gf
+manufacturer: Polymaker
+name: Polymaker HT-PLA-GF
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-ht-pla-gf
+    nozzleTemp: { min: 210, max: 230 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    dryBeforeUse: "60°C for 6h (only if material has absorbed moisture)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 } # generic bed temp
+        adhesion: { required: false, types: [] }

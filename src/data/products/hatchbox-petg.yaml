@@ -1,0 +1,14 @@
+id: hatchbox-petg
+manufacturer: HATCHBOX
+name: PETG
+material: PETG
+
+sources:
+  - source:
+      label: HATCHBOX Amazon listing
+      url: https://www.amazon.com/dp/B014VM9724
+    nozzleTemp: { min: 230, max: 260 }
+    plates:
+      textured-pei:
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }

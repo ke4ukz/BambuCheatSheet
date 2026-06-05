@@ -1,0 +1,18 @@
+id: esun-esilk-pla
+manufacturer: eSun
+name: eSilk PLA
+material: PLA
+
+sources:
+  - source:
+      label: eSun PLA-Silk Product Page
+      url: https://www.esun3d.com/esilk-pla-product/
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 45, max: 60 }
+        # generic bed temp (manufacturer doesn't specify plate)
+        adhesion: { required: false, types: [] }
