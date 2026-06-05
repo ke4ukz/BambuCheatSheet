@@ -1,41 +1,31 @@
 # Bambu Cheat Sheet
 
-A small SPA for quickly looking up recommended print parameters for a Bambu
-printer across filament products, build plates, and nozzles — so you don't have
-to dig through four product pages every time. Reference only; not fed to a
-printer.
+A quick cross-manufacturer lookup for 3D-printing filament settings on Bambu Lab
+printers. Pick a **filament**, **build plate**, and **nozzle**, and see the
+recommended parameters in one place — nozzle and bed temperatures, bed adhesion,
+nozzle requirements (hardened / minimum size / high-flow), drying instructions,
+AMS compatibility, and more — gathered from Bambu and filament-manufacturer
+sources so you don't have to dig through several product pages every time.
 
-## How it works
+**Live at [bambucheatsheet.ke4ukz.com](https://bambucheatsheet.ke4ukz.com)**
 
-Pick a **filament**, **build plate**, and **nozzle** and the app shows the
-relevant parameters (temps, adhesion, nozzle requirements, etc.). Each filament
-can carry recommendations from multiple **sources** (e.g. Bambu and the filament
-maker); when they disagree, both values are shown tagged with their source.
-Parameters you don't care about can be hidden via the **Parameters** button
-(remembered in your browser).
+## Notes
 
-## Adding filament data
+- **Reference only** — this is a convenience lookup, not slicer output. Always
+  verify against the manufacturer before printing.
+- Recommendations may have gaps or differ between sources. Where sources
+  disagree, every value is shown tagged with its source, and **every value links
+  back to where it came from**.
 
-One YAML file per product in `src/data/products/`. Copy
-[`docs/product-template.yaml`](docs/product-template.yaml) and fill in what you
-have — every field is optional, gaps are fine. Build plate ids live in
-`src/data/plates.yaml`; nozzle sizes/types (with an `abrasionResistant` flag
-that drives the hardened-nozzle warning) live in `src/data/nozzles.yaml`; the
-parameters shown (and their grouping/units) live in `src/data/parameters.yaml`.
+## License
 
-## Develop
+Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
-```bash
-npm install
-npm run dev
-```
+© 2026 Jonathan Dean. This project is not affiliated with, endorsed by, or
+sponsored by Bambu Lab or any filament manufacturer. "Bambu Lab," "Polymaker,"
+and all other product and brand names are trademarks of their respective owners.
 
-## Deploy
+## Contributing
 
-Pushing to `main` builds and publishes to GitHub Pages via
-`.github/workflows/deploy.yml`. Enable Pages once under **Settings → Pages →
-Source: GitHub Actions**. The site serves from the custom domain
-**bambucheatsheet.ke4ukz.com** (via `public/CNAME`), so the Vite base is `/`. In
-GitHub set **Settings → Pages → Custom domain** to that host, and add a DNS
-`CNAME` record for `bambucheatsheet` → `<user>.github.io`. If you drop the custom
-domain, set `base` back to `/BambuCheatSheet/` in `vite.config.js`.
+Development and data-entry notes are in
+[docs/development.md](docs/development.md).

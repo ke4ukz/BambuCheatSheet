@@ -264,3 +264,17 @@ footer {
   text-align: center;
   margin-top: 1.5rem;
 }
+
+footer p {
+  margin: 0.4rem 0;
+}
+
+footer a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+footer a:hover {
+  color: var(--accent);
+}

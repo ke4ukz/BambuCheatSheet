@@ -286,7 +286,18 @@ function formatValue(param, value) {
     </template>
 
     <footer>
-      Reference only — not for direct printer use. Verify against the manufacturer.
+      <p>Reference only — not for direct printer use. Always verify against the manufacturer.</p>
+      <p>
+        © 2026 Jonathan Dean. Not affiliated with, endorsed by, or sponsored by
+        Bambu Lab or any filament manufacturer. “Bambu Lab,” “Polymaker,” and all
+        other product and brand names are trademarks™ or registered® trademarks of
+        their respective owners.
+      </p>
+      <p>
+        <a href="https://github.com/ke4ukz/BambuCheatSheet/issues" target="_blank" rel="noopener">Report issues on GitHub</a>
+        ·
+        <a href="https://github.com/ke4ukz/BambuCheatSheet/blob/main/LICENSE" target="_blank" rel="noopener">Licensed under GPLv3</a>
+      </p>
     </footer>
   </div>
 </template>
