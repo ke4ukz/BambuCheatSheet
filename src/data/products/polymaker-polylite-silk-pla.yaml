@@ -1,0 +1,23 @@
+id: polymaker-polylite-silk-pla
+manufacturer: Polymaker
+name: PolyLite Silk PLA
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.1
+      url: https://www.poly-maker.jp/download/TDS/Polylite_PLA_Silk_EN_V5.1.pdf
+    nozzleTemp: { min: 200, max: 220 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 70 }
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page (Panchroma Silk, formerly PolyLite Silk)
+      url: https://shop.polymaker.com/products/panchroma-silk
+    dryBeforeUse: "55°C for 6h (only if absorbed moisture)"
+    amsCompatible: true

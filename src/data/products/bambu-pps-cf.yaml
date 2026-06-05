@@ -1,0 +1,42 @@
+id: bambu-pps-cf
+manufacturer: Bambu Lab
+name: PPS-CF
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PPS-CF%20%40base.json
+    # nozzle_temperature: 320 (inherited from fdm_filament_pps; range 310–340 from @base + parent)
+    nozzleTemp: { min: 310, max: 340 }
+    firstLayerNozzleTemp: 320
+    # chamber_temperatures: 60 (fdm_filament_pps parent); H2D uses 65
+    chamberTemp: 60
+    # required_nozzle_HRC: 40 (set in @base) — hardened nozzle required; CF is abrasive
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    # filament_max_volumetric_speed: 6 (set in @base and X1E/H2D machine profiles)
+    maxVolumetricSpeed: 6
+    enclosureRequired: true
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/1757c01402614b768efbce1f9848b841.pdf
+    dryBeforeUse: "100–140°C for 8–12h (blast oven) or 110–120°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        # textured_plate_temp: 110 (inherited from fdm_filament_pps)
+        bedTemp: 110
+        firstLayerBedTemp: 110
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        # cool_plate_temp: 0 in parent — not supported
+        supported: false
+      supertack:
+        # supertack_plate_temp: 0 in parent — not supported
+        supported: false
+      engineering:
+        # eng_plate_temp: 110 (inherited from fdm_filament_pps)
+        bedTemp: 110
+        firstLayerBedTemp: 110
+        adhesion: { required: true, types: [glue-stick] }

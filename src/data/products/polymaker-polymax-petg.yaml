@@ -1,0 +1,29 @@
+id: polymaker-polymax-petg
+manufacturer: Polymaker
+name: PolyMax PETG
+material: PETG
+
+sources:
+  - source:
+      label: Polymaker TDS V5.3
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyMax_PETG_TDS_V5.3.pdf
+    nozzleTemp: { min: 230, max: 240 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 70, max: 80 }
+        adhesion: { required: false, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymax-petg
+    dryBeforeUse: "65°C for 6h (only if absorbed moisture)"
+    amsCompatible: true

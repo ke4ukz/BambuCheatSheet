@@ -1,0 +1,23 @@
+id: polymaker-polymax-pla
+manufacturer: Polymaker
+name: PolyMax PLA
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.3
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyMax-PLA_TDS_V5.3.pdf
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 }
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymax-pla
+    dryBeforeUse: "55°C for 6h (only if absorbed moisture)"
+    amsCompatible: true

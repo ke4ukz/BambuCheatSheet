@@ -1,0 +1,23 @@
+id: bambu-petg-cf
+manufacturer: Bambu Lab
+name: PETG-CF
+material: PETG
+
+sources:
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/4c49c848193141cc8cf8ddd054396b89.pdf
+    nozzleTemp: { min: 240, max: 270 }
+    chamberTemp: { min: 35, max: 50 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    dryBeforeUse: "65°C for 8h (blast oven) or 75-85°C for 12h (X1 heatbed)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick] }
+      engineering:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick] }

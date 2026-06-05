@@ -1,0 +1,29 @@
+id: polymaker-polylite-abs
+manufacturer: Polymaker
+name: PolyLite ABS
+material: ABS
+
+sources:
+  - source:
+      label: Polymaker TDS V5.5
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyLite-ABS_TDS_EN_V5.5.pdf
+    nozzleTemp: { min: 245, max: 265 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "70°C for 6h"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 100 }
+        adhesion: { required: false, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polylite-abs
+    amsCompatible: true

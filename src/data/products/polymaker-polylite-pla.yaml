@@ -1,0 +1,23 @@
+id: polymaker-polylite-pla
+manufacturer: Polymaker
+name: PolyLite PLA
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.4
+      url: https://cdn.shopify.com/s/files/1/0548/7299/7945/files/PolyLite_PLA_TDS_EN_V5.4.pdf?v=1731949179
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "55°C for 6h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 }
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polylite-pla
+    amsCompatible: true

@@ -1,0 +1,20 @@
+# Nozzle options. Add freely.
+#
+# `abrasionResistant: true` means the nozzle satisfies a filament's
+# "hardened nozzle required" flag — i.e. abrasive filaments (CF/GF, glow,
+# wood, etc.) won't chew through it. That flag is the ONLY thing the nozzle
+# type drives in this tool (the source data never gives per-nozzle settings).
+sizes: [0.2, 0.4, 0.6, 0.8]
+types:
+  - id: stainless
+    label: Stainless Steel
+    abrasionResistant: false
+  - id: hardened
+    label: Hardened Steel
+    abrasionResistant: true
+  - id: tungsten-carbide
+    label: Tungsten Carbide
+    abrasionResistant: true
+  - id: ruby
+    label: Ruby-tipped
+    abrasionResistant: true

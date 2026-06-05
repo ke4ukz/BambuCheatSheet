@@ -1,0 +1,27 @@
+id: bambu-abs-gf
+manufacturer: Bambu Lab
+name: ABS-GF
+material: ABS
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/2450f3fe0251448c91c5a191b7cb6a1e.pdf
+    nozzleTemp: { min: 240, max: 280 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }

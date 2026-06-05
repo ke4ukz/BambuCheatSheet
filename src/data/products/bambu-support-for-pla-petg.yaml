@@ -1,0 +1,36 @@
+id: bambu-support-for-pla-petg
+manufacturer: Bambu Lab
+name: Support for PLA/PETG
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20Support%20For%20PLA-PETG%20%40base.json
+    # nozzle_temperature: 210 (set in @base; X1C machine profile confirms 210)
+    nozzleTemp: 210
+    firstLayerNozzleTemp: 210
+    # filament_max_volumetric_speed: 6 (set in @base and X1C machine profile)
+    maxVolumetricSpeed: 6
+    hardenedNozzleRequired: false
+    abrasive: false
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        # textured_plate_temp: 60 (set in @base); A1 machine profile uses 65
+        bedTemp: 60
+        firstLayerBedTemp: 60
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        # cool_plate_temp: 35 (inherited from fdm_filament_pla; no machine profile override)
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: true, types: [glue-stick] }
+      supertack:
+        # supertack_plate_temp_initial_layer: 0 (set in @base) — not supported
+        supported: false
+      engineering:
+        # eng_plate_temp: 60 (X1C machine profile); A1 machine profile uses 65
+        bedTemp: 60
+        firstLayerBedTemp: 60
+        adhesion: { required: true, types: [glue-stick] }

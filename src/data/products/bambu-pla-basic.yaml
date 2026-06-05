@@ -1,0 +1,35 @@
+id: bambu-pla-basic
+manufacturer: Bambu Lab
+name: PLA Basic
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Basic%20%40base.json
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    maxVolumetricSpeed: 21
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/s7/default/b189de92249a4b9ebed28b8ea1f080f0/Bambu_PLA_Basic_Technical_Data_Sheet.pdf
+    dryBeforeUse: "50°C for 8h (blast oven) or 60-70°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

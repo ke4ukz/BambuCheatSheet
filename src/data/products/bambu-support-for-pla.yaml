@@ -1,0 +1,26 @@
+id: bambu-support-for-pla
+manufacturer: Bambu Lab
+name: Support for PLA
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/s2/default/200ef29f5cd04b20ba6c2c86f0cc3ec0/Bambus_Support_for_PLA_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 220, max: 230 }
+    chamberTemp: { min: 25, max: 45 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 35, max: 45 }
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        bedTemp: { min: 35, max: 45 }
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      supertack:
+        bedTemp: { min: 35, max: 45 }
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }

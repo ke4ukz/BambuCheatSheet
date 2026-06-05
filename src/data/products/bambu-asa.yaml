@@ -1,0 +1,27 @@
+id: bambu-asa
+manufacturer: Bambu Lab
+name: ASA
+material: ASA
+
+sources:
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.eu/s8/default/cad72d633f104a1aa80dc6c5937cb642/Bambu_ASA_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 240, max: 270 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }

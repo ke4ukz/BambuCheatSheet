@@ -1,0 +1,35 @@
+id: bambu-pla-aero
+manufacturer: Bambu Lab
+name: PLA Aero
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Aero%20%40base.json
+    # Nozzle range 210-260°C specified; default nozzle temp inherits 220°C from fdm_filament_pla
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    maxVolumetricSpeed: 6
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V4.0
+      url: https://store.bblcdn.com/d229c02a3d2542a1b280de587e581131.pdf
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        # Profile explicitly sets supertack temps to 0 — not supported
+        supported: false
+      engineering:
+        supported: false

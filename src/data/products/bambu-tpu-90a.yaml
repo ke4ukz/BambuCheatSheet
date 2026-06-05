@@ -1,0 +1,23 @@
+id: bambu-tpu-90a
+manufacturer: Bambu Lab
+name: TPU 90A
+material: TPU
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://www.createeducation.com/wp-content/uploads/2025/08/Bambu_TPU_90A_Technical_Data_Sheet_582bf8f6-1f0a-474c-aeda-9e72af3689dc.pdf
+    nozzleTemp: { min: 200, max: 250 }
+    chamberTemp: { min: 25, max: 45 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: 0.4
+    dryBeforeUse: "70°C for 8h (blast oven) or 90°C for 16h (heatbed)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 35 }
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        bedTemp: { min: 30, max: 35 }
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }

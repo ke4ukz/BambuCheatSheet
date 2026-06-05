@@ -1,0 +1,24 @@
+id: polymaker-polylite-pla-cf
+manufacturer: Polymaker
+name: PolyLite PLA-CF
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.3
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyLite_PLA-CF_TDS_US_5.3.pdf
+    nozzleTemp: { min: 190, max: 220 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: null
+    maxVolumetricSpeed: 15
+    dryBeforeUse: "55°C for 6h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 60 }
+        adhesion: { required: true, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polylite-pla-cf
+    amsCompatible: true

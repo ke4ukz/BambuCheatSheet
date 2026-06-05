@@ -1,0 +1,25 @@
+id: polymaker-fiberon-petg-cf
+manufacturer: Polymaker
+name: Fiberon PETG-rCF08
+material: PETG
+
+sources:
+  - source:
+      label: Polymaker TDS (Fiberon PETG-rCF08 V1.0)
+      url: https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PETG-rCF08_V1.0_EN.pdf
+    nozzleTemp: { min: 240, max: 270 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: null
+    dryBeforeUse: "65°C for 3h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 60, max: 70 }
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        supported: false

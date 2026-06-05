@@ -1,0 +1,55 @@
+# Product file template — copy into src/data/products/<id>.yaml and fill in.
+# Everything is optional except id / manufacturer / name / material.
+# Leave out any field you don't have data for; gaps are fine.
+#
+# UNKNOWN vs NONE: an ABSENT field (or null) = "unknown / no data" and shows as
+# "—". An explicit `false` / `{required: false}` = an affirmative "no
+# requirement" and shows as "Not required" / "Not compatible". Only assert the
+# explicit form when the source actually says so.
+#
+# EVERY value must sit under a source that has a `url`. No link = no information:
+# if you can't cite a fetchable/real source, don't record the value. (The
+# validator errors on a source without a url.) Different facts can come from
+# different sources — just add another entry to `sources:` with its own url.
+#
+# Numbers can be a single value (55) or a range ({ min: 50, max: 60 }).
+#
+# adhesion types (use any that apply):
+#   glue-stick | liquid-glue | hairspray | blue-tape | kapton-tape
+#
+# plate ids (see src/data/plates.yaml):
+#   textured-pei | cool-plate | supertack | engineering
+
+id: manufacturer-product-slug      # unique, kebab-case
+manufacturer: Manufacturer Name
+name: Product Name
+material: PLA                       # PLA | PETG | ABS | ASA | TPU | PA | PC | PVA | Other
+
+sources:
+  - source:
+      label: Source Name            # e.g. "Bambu Lab", "Polymaker TDS"
+      url: https://...
+    nozzleTemp: { min: 0, max: 0 }
+    firstLayerNozzleTemp: { min: 0, max: 0 }
+    chamberTemp: null
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null             # "doesn't work with 0.2mm" -> 0.4 (warns if a smaller nozzle is selected)
+    highFlowSupported: null         # set false when the data says "not compatible with high-flow"
+    maxVolumetricSpeed: null
+    dryBeforeUse: null              # free text, e.g. "65°C for 8h" or "70°C 6h if it has absorbed moisture"
+    amsCompatible: null             # false when the source says it can't run in the AMS (e.g. most TPU)
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: 0
+        firstLayerBedTemp: 0
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 0
+        adhesion: { required: true, types: [glue-stick] }
+      supertack:
+        supported: false           # mark combos the source says not to use
+      engineering:
+        bedTemp: 0
+        adhesion: { required: true, types: [glue-stick] }

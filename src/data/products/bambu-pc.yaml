@@ -1,0 +1,27 @@
+id: bambu-pc
+manufacturer: Bambu Lab
+name: PC
+material: PC
+
+sources:
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.eu/s8/default/ab03007d58814bc28a08145719b552de/Bambu_PC_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 260, max: 280 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 110 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 90, max: 110 }
+        adhesion: { required: true, types: [glue-stick] }

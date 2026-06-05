@@ -1,0 +1,37 @@
+id: bambu-pla-cf
+manufacturer: Bambu Lab
+name: PLA-CF
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA-CF%20%40base.json
+    # Nozzle range 210-250°C; machine profiles (A1, X1C) use 230°C
+    nozzleTemp: 230
+    firstLayerNozzleTemp: 230
+    # required_nozzle_HRC: 40 — hardened nozzle required; carbon fiber is abrasive
+    hardenedNozzleRequired: true
+    abrasive: true
+    # 0.2 mm nozzle not supported (clogging risk); 0.4 mm hardened is minimum recommended
+    nozzleSizeMin: 0.4
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V2.0
+      url: https://store.bblcdn.com/842f399d4e274507953a5231126ec8c1.pdf
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 65
+        firstLayerBedTemp: 65
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 50
+        firstLayerBedTemp: 50
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

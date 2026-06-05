@@ -1,0 +1,26 @@
+id: polymaker-fiberon-pa6-gf
+manufacturer: Polymaker
+name: Fiberon PA6-GF25
+material: PA
+
+sources:
+  - source:
+      label: Polymaker TDS (Fiberon PA6-GF25 V1.1)
+      url: https://fiberon.polymaker.com/wp-content/uploads/TDS_FIBERON-PA6-GF25_V1.1_EN.pdf
+    nozzleTemp: { min: 280, max: 300 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: null
+    dryBeforeUse: "100°C for 10h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 40, max: 50 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 40, max: 50 }
+        adhesion: { required: true, types: [glue-stick] }

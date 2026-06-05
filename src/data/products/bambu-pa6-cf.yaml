@@ -1,0 +1,42 @@
+id: bambu-pa6-cf
+manufacturer: Bambu Lab
+name: PA6-CF
+material: PA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PA6-CF%20%40base.json
+    # nozzle_temperature: 275 (set in @base; confirmed in all machine profiles)
+    nozzleTemp: 275
+    firstLayerNozzleTemp: 275
+    # chamber_temperatures: 60 (X1C, X1E, H2D, P2S machine profiles)
+    chamberTemp: 60
+    # required_nozzle_HRC: 40 inherited from fdm_filament_pa — hardened nozzle required; CF is abrasive
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    # filament_max_volumetric_speed: 8 (X1C first slot, P2S)
+    maxVolumetricSpeed: 8
+    enclosureRequired: true
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/b2abc59ac250492b979a52f1ce3e61b3.pdf
+    dryBeforeUse: "80°C for 8–12h (blast oven) or 90–100°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        # textured_plate_temp: 100 (inherited from fdm_filament_pa)
+        bedTemp: 100
+        firstLayerBedTemp: 100
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        # cool_plate_temp: 0 in parent — not supported
+        supported: false
+      supertack:
+        # supertack_plate_temp: 0 in parent — not supported
+        supported: false
+      engineering:
+        # eng_plate_temp: 100 (inherited from fdm_filament_pa)
+        bedTemp: 100
+        firstLayerBedTemp: 100
+        adhesion: { required: true, types: [glue-stick] }

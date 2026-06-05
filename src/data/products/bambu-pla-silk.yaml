@@ -1,0 +1,33 @@
+id: bambu-pla-silk
+manufacturer: Bambu Lab
+name: PLA Silk
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Silk%20%40base.json
+    nozzleTemp: 230
+    firstLayerNozzleTemp: 230
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/295ef97080284984bc5222d90974339f.pdf
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        # Profile explicitly sets supertack temps to 0 — not supported
+        supported: false
+      engineering:
+        supported: false

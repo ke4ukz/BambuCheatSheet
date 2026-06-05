@@ -1,0 +1,47 @@
+id: bambu-pet-cf
+manufacturer: Bambu Lab
+name: PET-CF
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PET-CF%20%40base.json
+    # nozzle_temperature: 270 (set in @base; range 260–290 from nozzle_temperature_range_low/high)
+    nozzleTemp: { min: 260, max: 290 }
+    firstLayerNozzleTemp: 270
+    # required_nozzle_HRC: 40 (set in @base) — hardened nozzle required; CF is abrasive
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    # filament_max_volumetric_speed: 8 (set in @base and confirmed in X1C)
+    maxVolumetricSpeed: 8
+    enclosureRequired: true
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.eu/s8/default/df83cdd0401b4c169d7883a3e7bd2c8a/Bambu_PET-CF_Technical_Data_Sheet.pdf
+    dryBeforeUse: "80°C for 8–12h (blast oven) or 90–100°C for 12h (X1 heatbed)"
+  - source:
+      label: Bambu Lab (BambuStudio filaments_blacklist)
+      url: https://raw.githubusercontent.com/bambulab/BambuStudio/master/resources/printers/filaments_blacklist.json
+    # "AMS does not support 'Bambu Lab PET-CF'" — explicit prohibition entry in blacklist
+    amsCompatible: false
+    plates:
+      textured-pei:
+        # textured_plate_temp: 100 / textured_plate_temp_initial_layer: 100 (set in @base)
+        bedTemp: 100
+        firstLayerBedTemp: 100
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        # cool_plate_temp: 0 (set in @base) — not supported
+        supported: false
+      supertack:
+        # supertack_plate_temp: 80 / supertack_plate_temp_initial_layer: 80 (set in @base)
+        bedTemp: 80
+        firstLayerBedTemp: 80
+        adhesion: { required: true, types: [glue-stick] }
+      engineering:
+        # eng_plate_temp: 80 / eng_plate_temp_initial_layer: 80 (set in @base)
+        bedTemp: 80
+        firstLayerBedTemp: 80
+        adhesion: { required: true, types: [glue-stick] }

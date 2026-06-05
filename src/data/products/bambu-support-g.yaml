@@ -1,0 +1,22 @@
+id: bambu-support-g
+manufacturer: Bambu Lab
+name: Support G (Support for PA/PET)
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.eu/s8/default/a515fafc99ab483092a3aaeed8e95841/Bambu_Support_for_PA_and_PET_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 260, max: 290 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "80°C for 8-12h (blast oven)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [liquid-glue] }
+      engineering:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [liquid-glue] }

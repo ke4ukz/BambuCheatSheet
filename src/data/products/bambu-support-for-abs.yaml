@@ -1,0 +1,27 @@
+id: bambu-support-for-abs
+manufacturer: Bambu Lab
+name: Support for ABS
+material: Other
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.eu/s8/default/3971a666363d43b8a2fe852b04832f93/Bambus_Support_for_ABS_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 240, max: 270 }
+    chamberTemp: { min: 25, max: 45 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: 0.4
+    dryBeforeUse: "80°C for 4h (blast oven) or 85-95°C for 6h (X1 heatbed)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      engineering:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }

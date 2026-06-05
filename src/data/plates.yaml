@@ -1,0 +1,14 @@
+# Build plates the tool knows about. `id` is referenced by product files
+# under each source's `plates:` map.
+- id: textured-pei
+  label: Textured PEI Plate
+  order: 1
+- id: cool-plate
+  label: Cool Plate
+  order: 2
+- id: supertack
+  label: Cool Plate SuperTack
+  order: 3
+- id: engineering
+  label: Engineering Plate
+  order: 4

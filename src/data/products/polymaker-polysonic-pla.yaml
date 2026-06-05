@@ -1,0 +1,23 @@
+id: polymaker-polysonic-pla
+manufacturer: Polymaker
+name: PolySonic PLA
+material: PLA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.3
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolySonic-PLA-EN_V5.3-TDS.pdf
+    nozzleTemp: { min: 190, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "55°C for 6h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 60 }
+        adhesion: { required: false, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polysonic-pla
+    amsCompatible: true

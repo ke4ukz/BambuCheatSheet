@@ -1,0 +1,35 @@
+id: bambu-pla-marble
+manufacturer: Bambu Lab
+name: PLA Marble
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Marble%20%40base.json
+    # Inherits all temps from fdm_filament_pla; no overrides in @base
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/f29d2edbf8d84dbd98ab046661ee5e39.pdf
+    dryBeforeUse: "55°C for 8h"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

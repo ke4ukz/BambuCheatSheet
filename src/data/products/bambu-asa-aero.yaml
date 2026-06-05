@@ -1,0 +1,27 @@
+id: bambu-asa-aero
+manufacturer: Bambu Lab
+name: ASA Aero
+material: ASA
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/s1/default/02b005fdf02d450084e3128f7cf0c36f/Bambu_ASA_Aero_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 240, max: 280 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        # TDS explicitly states "Textured PEI Plate (Not Recommended)"
+        supported: false
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 80, max: 90 }
+        adhesion: { required: true, types: [glue-stick] }

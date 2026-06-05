@@ -1,0 +1,29 @@
+id: polymaker-polylite-petg
+manufacturer: Polymaker
+name: PolyLite PETG
+material: PETG
+
+sources:
+  - source:
+      label: Polymaker TDS V5.4
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyLite_PETG_TDS_EN_V5.4.pdf
+    nozzleTemp: { min: 230, max: 260 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "65°C for 6h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 70, max: 80 }
+        adhesion: { required: false, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        supported: false
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymaker-petg
+    amsCompatible: true

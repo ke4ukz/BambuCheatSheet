@@ -1,0 +1,30 @@
+id: polymaker-polylite-pc
+manufacturer: Polymaker
+name: PolyLite PC
+material: PC
+
+sources:
+  - source:
+      label: Polymaker TDS V5.3
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyLite_PC_TDS_V5.3.pdf
+    nozzleTemp: { min: 250, max: 270 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 90, max: 105 }
+        adhesion: { required: true, types: [liquid-glue] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 90, max: 105 }
+        adhesion: { required: true, types: [liquid-glue] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polylite-pc
+    dryBeforeUse: "75°C for 12h (only if absorbed moisture)"
+    amsCompatible: true

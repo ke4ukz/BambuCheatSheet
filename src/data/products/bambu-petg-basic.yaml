@@ -1,0 +1,27 @@
+id: bambu-petg-basic
+manufacturer: Bambu Lab
+name: PETG Basic
+material: PETG
+
+sources:
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/s1/default/cb94589bf7994fdcbfa833badefae9cd/Bambu_PETG_Basic_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 230, max: 260 }
+    chamberTemp: { min: 35, max: 50 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "65°C for 8h (blast oven or AMS 2 Pro/AMS HT) or 80°C for 12h (X1/P/H2 heatbed)"
+    amsCompatible: true
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick, liquid-glue] }
+      cool-plate:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick, liquid-glue] }
+      supertack:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick, liquid-glue] }

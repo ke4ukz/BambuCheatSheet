@@ -1,0 +1,25 @@
+id: bambu-tpu-95a
+manufacturer: Bambu Lab
+name: TPU 95A
+material: TPU
+
+sources:
+  - source:
+      label: Bambu Lab TDS V2.0
+      url: https://sourcegraphics.com/wp-content/uploads/2023/06/Bambu_TPU_95A_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 220, max: 240 }
+    chamberTemp: { min: 25, max: 45 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    dryBeforeUse: "70°C for 8h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 30, max: 35 }
+        adhesion: { required: true, types: [liquid-glue] }
+      cool-plate:
+        bedTemp: { min: 30, max: 35 }
+        adhesion: { required: true, types: [liquid-glue] }
+      engineering:
+        bedTemp: { min: 30, max: 35 }
+        adhesion: { required: true, types: [liquid-glue] }

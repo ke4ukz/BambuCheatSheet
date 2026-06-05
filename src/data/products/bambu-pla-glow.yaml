@@ -1,0 +1,36 @@
+id: bambu-pla-glow
+manufacturer: Bambu Lab
+name: PLA Glow
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Glow%20%40base.json
+    # required_nozzle_HRC: 40 means hardened nozzle required
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: null
+    maxVolumetricSpeed: 18
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/cd34cf072d14484bbf027290d16abe9b.pdf
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

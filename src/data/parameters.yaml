@@ -1,0 +1,124 @@
+# Parameter registry. This drives BOTH the results display and the
+# show/hide toggles. Order here is the display order within each group.
+#
+#   key            field name used in product YAML
+#   label          shown in the UI
+#   group          section header in results / settings
+#   unit           appended to numeric values (optional)
+#   scope          filament  -> read from the source's top level
+#                  plate     -> read from source.plates[selectedPlate]
+#   type           range | number | bool | adhesion | nozzleSize | text
+#   defaultVisible whether it shows before the user touches settings
+
+- key: nozzleTemp
+  label: Nozzle Temp
+  group: Temperature
+  unit: "°C"
+  scope: filament
+  type: range
+  defaultVisible: true
+
+- key: firstLayerNozzleTemp
+  label: First Layer Nozzle Temp
+  group: Temperature
+  unit: "°C"
+  scope: filament
+  type: range
+  defaultVisible: true
+
+- key: bedTemp
+  label: Bed Temp
+  group: Temperature
+  unit: "°C"
+  scope: plate
+  type: range
+  defaultVisible: true
+
+- key: firstLayerBedTemp
+  label: First Layer Bed Temp
+  group: Temperature
+  unit: "°C"
+  scope: plate
+  type: range
+  defaultVisible: true
+
+- key: chamberTemp
+  label: Chamber Temp
+  group: Temperature
+  unit: "°C"
+  scope: filament
+  type: range
+  defaultVisible: false
+
+- key: adhesion
+  label: Adhesion
+  group: Adhesion & Surface
+  scope: plate
+  type: adhesion
+  defaultVisible: true
+
+- key: hardenedNozzleRequired
+  label: Hardened Nozzle Required
+  group: Nozzle
+  scope: filament
+  type: bool
+  trueLabel: Required
+  falseLabel: Not required
+  defaultVisible: true
+
+- key: nozzleSizeMin
+  label: Min Nozzle Size
+  group: Nozzle
+  unit: "mm"
+  scope: filament
+  type: nozzleSize
+  defaultVisible: true
+
+- key: highFlowSupported
+  label: High-Flow Compatible
+  group: Nozzle
+  scope: filament
+  type: bool
+  trueLabel: Compatible
+  falseLabel: Not compatible
+  defaultVisible: true
+
+- key: abrasive
+  label: Abrasive
+  group: Nozzle
+  scope: filament
+  type: bool
+  defaultVisible: false
+
+- key: maxVolumetricSpeed
+  label: Max Volumetric Speed
+  group: Flow & Speed
+  unit: "mm³/s"
+  scope: filament
+  type: range
+  defaultVisible: false
+
+- key: dryBeforeUse
+  label: Dry Before Use
+  group: Handling
+  scope: filament
+  type: text
+  defaultVisible: true
+
+- key: amsCompatible
+  label: AMS Compatible
+  group: Handling
+  scope: filament
+  type: bool
+  trueLabel: Compatible
+  falseLabel: Not compatible
+  defaultVisible: true
+
+- key: enclosureRequired
+  label: Enclosure Required
+  group: Handling
+  scope: filament
+  type: bool
+  trueLabel: Required
+  falseLabel: Not required
+  defaultVisible: false

@@ -1,0 +1,35 @@
+id: bambu-pla-sparkle
+manufacturer: Bambu Lab
+name: PLA Sparkle
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Sparkle%20%40base.json
+    # Inherits all temps from fdm_filament_pla; no overrides in @base
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/312885297665464a852cdd0b9565f0fe.pdf
+    dryBeforeUse: "55°C for 8h"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

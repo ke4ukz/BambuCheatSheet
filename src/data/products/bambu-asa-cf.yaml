@@ -1,0 +1,27 @@
+id: bambu-asa-cf
+manufacturer: Bambu Lab
+name: ASA-CF
+material: ASA
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/s7/default/44b0a48ab1d84e819647c980eb179ae9/Bambus_ASA-CF_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 250, max: 280 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: 0.4
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        # TDS lists "Textured PEI Plate / Smooth PEI Plate" only; engineering plate not mentioned
+        supported: false

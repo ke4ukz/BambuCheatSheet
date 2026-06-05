@@ -1,0 +1,27 @@
+id: bambu-abs
+manufacturer: Bambu Lab
+name: ABS
+material: ABS
+
+sources:
+  - source:
+      label: Bambu Lab TDS V3.0
+      url: https://store.bblcdn.com/s7/default/23b4cf2b83d5470bb96d19970b5f3ae8/Bambu_ABS_Technical_Data_Sheet_V3.pdf
+    nozzleTemp: { min: 240, max: 270 }
+    chamberTemp: { min: 45, max: 60 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "80°C for 8h (blast oven) or 90-100°C for 12h (X1 heatbed)"
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 80, max: 100 }
+        adhesion: { required: true, types: [glue-stick] }

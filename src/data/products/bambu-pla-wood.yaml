@@ -1,0 +1,36 @@
+id: bambu-pla-wood
+manufacturer: Bambu Lab
+name: PLA Wood
+material: PLA
+
+sources:
+  - source:
+      label: Bambu Lab (BambuStudio profiles)
+      url: https://github.com/bambulab/BambuStudio/blob/master/resources/profiles/BBL/filament/Bambu%20PLA%20Wood%20%40base.json
+    # Inherits all temps from fdm_filament_pla; no overrides in @base
+    nozzleTemp: 220
+    firstLayerNozzleTemp: 220
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    maxVolumetricSpeed: 18
+    enclosureRequired: false
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/s4/default/6fda0ae88e5a4e66bb5d58f2968eee42/Bambus_PLA_Wood_Technical_Data_Sheet.pdf
+    dryBeforeUse: "55°C for 8h (blast oven) or 65-75°C for 12h (X1 heatbed)"
+    plates:
+      textured-pei:
+        bedTemp: 55
+        firstLayerBedTemp: 55
+        adhesion: { required: false, types: [] }
+      cool-plate:
+        bedTemp: 35
+        firstLayerBedTemp: 35
+        adhesion: { required: false, types: [] }
+      supertack:
+        bedTemp: 45
+        firstLayerBedTemp: 45
+        adhesion: { required: false, types: [] }
+      engineering:
+        supported: false

@@ -1,0 +1,30 @@
+id: polymaker-polymide-copa
+manufacturer: Polymaker
+name: PolyMide CoPA
+material: PA
+
+sources:
+  - source:
+      label: Polymaker TDS V5.2
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyMide_CoPA_TDS_V5.2.pdf
+    nozzleTemp: { min: 250, max: 270 }
+    hardenedNozzleRequired: true
+    abrasive: true
+    nozzleSizeMin: null
+    enclosureRequired: true
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 50 }
+        adhesion: { required: true, types: [glue-stick] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        bedTemp: { min: 25, max: 50 }
+        adhesion: { required: true, types: [glue-stick] }
+  - source:
+      label: Polymaker Product Page
+      url: https://shop.polymaker.com/products/polymide-copa
+    dryBeforeUse: "80°C for 10h (only if absorbed moisture)"
+    amsCompatible: true

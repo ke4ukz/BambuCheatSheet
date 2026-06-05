@@ -1,0 +1,25 @@
+id: polymaker-polyflex-tpu90
+manufacturer: Polymaker
+name: PolyFlex TPU90
+material: TPU
+
+sources:
+  - source:
+      label: Polymaker TDS V5.1
+      url: https://polymaker.com/wp-content/uploads/lana-downloads/PolyFlex_TPU90_TDS_V5.1.pdf
+    nozzleTemp: { min: 210, max: 230 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "70°C for 8h"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 25, max: 60 }
+        adhesion: { required: false, types: [liquid-glue] }
+      cool-plate:
+        supported: false
+      supertack:
+        supported: false
+      engineering:
+        supported: false

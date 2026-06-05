@@ -1,0 +1,23 @@
+id: bambu-petg-translucent
+manufacturer: Bambu Lab
+name: PETG Translucent
+material: PETG
+
+sources:
+  - source:
+      label: Bambu Lab TDS V1.0
+      url: https://store.bblcdn.com/s1/default/338c9cd853fd44d9b6ed354a49048e72/Bambu_PETG_Translucent_Technical_Data_Sheet.pdf
+    nozzleTemp: { min: 230, max: 270 }
+    chamberTemp: { min: 35, max: 50 }
+    hardenedNozzleRequired: false
+    abrasive: false
+    nozzleSizeMin: null
+    dryBeforeUse: "65°C for 8h (blast oven) or 75-85°C for 12h (X1 heatbed)"
+    enclosureRequired: false
+    plates:
+      textured-pei:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick] }
+      engineering:
+        bedTemp: { min: 65, max: 75 }
+        adhesion: { required: true, types: [glue-stick] }
