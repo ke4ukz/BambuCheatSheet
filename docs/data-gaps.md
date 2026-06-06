@@ -13,7 +13,8 @@ come from another source, e.g. the wiki material table; don't expect a store
 paste): `bambu-pla-lite` (page 404s), `bambu-pla-dynamic`, `bambu-pla-silk`
 (store now only "PLA Silk+"), `bambu-pla-tough` (store now only "PLA Tough+"),
 `bambu-support-w` (store's support lineup is now PLA / PLA-PETG / ABS / PA-PET /
-PVA — no "Support W"). All legit (profile/TDS-sourced) — **keep**, just can't
+PVA — no "Support W"), `bambu-tpu-95a` (store TPU lineup is now TPU 85A/90A,
+TPU for AMS, TPU 95A HF — no bare "TPU 95A"). All legit (profile/TDS-sourced) — **keep**, just can't
 backfill AMS the usual way. Also `bambu-support-g` = store "Support for PA/PET"
 (now **discontinued**; AMS still filled from its page before removal). Store
 products **missing from our catalog**: PLA Translucent, PLA Silk Multi-Color,
