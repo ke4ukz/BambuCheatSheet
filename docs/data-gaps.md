@@ -44,6 +44,12 @@ validator + display, so not pure data-entry). Capture later.
    the *largest* usable nozzle: PLA Silk+ (`bambu-pla-silk-plus`) marks 0.6/0.8
    nozzles "Not Recommended" (only 0.2/0.4 recommended) — i.e. max 0.4. Captured
    in prose only for now; add the field to encode it.
+4. **AMS vs AMS-lite distinction** — `amsCompatible` is a single bool, but several
+   products are "regular AMS yes, AMS lite no": `bambu-abs`, `bambu-asa`,
+   `bambu-pla-glow` (glow/abrasive PLAs → AMS-lite feeding failures). Currently set
+   `amsCompatible: true` (regular AMS) and note the AMS-lite exclusion in a YAML
+   comment. Consider splitting into `ams`/`amsLite` (or an enum) so the AMS-lite
+   exclusion is queryable.
 
 ---
 
