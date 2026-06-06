@@ -17,7 +17,14 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       engineering:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — PETG-CF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/petg-cf
+    # hardened-required, stainless not recommended, 0.2mm not compatible all
+    # already set from the TDS source; store corroborates. AMS 2 Pro/HT/AMS ok,
+    # AMS lite NOT compatible (single bool reflects regular AMS). No glue row.
+    amsCompatible: true
