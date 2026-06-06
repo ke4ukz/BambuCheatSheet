@@ -5,54 +5,91 @@
 # reference (hairspray, blue-tape, kapton-tape) have no Bambu product page and
 # are intentionally absent until a citable source exists.
 
-- id: liquid-glue
-  label: Liquid Glue
-  manufacturer: Bambu Lab
-  source:
-    label: Bambu Lab Store — Liquid Glue for Build Plate
-    url: https://us.store.bambulab.com/products/liquid-glue-for-build-plate
-  plateCompatibility: All Bambu Lab build plates
-  # Materials Bambu explicitly lists. Catalog material ids only; the page also
-  # lists PET (not a catalog material). PC and PA are NOT listed — see inference.
-  materials: [PLA, PETG, ABS, ASA, TPU]
-  materialsNote: Source also lists PET. Does not list PC or PA.
-  # Recommended hotbed temperature when using this glue, per material.
-  bedTempByMaterial:
-    PLA: { min: 40, max: 60 }
-    PETG: { min: 60, max: 80 }
-    PET: { min: 80, max: 100 }
-    ABS: { min: 90, max: 100 }
-    ASA: { min: 90, max: 100 }
-    TPU: { min: 30, max: 45 }
-  features:
-    - Less residue on the model and easier to clean (water) than glue stick
-    - More uniform application than glue stick
-    - Lower odor; ingredients described as eco-friendly and skin-safe
-  specs:
-    packageVolume: 60 mL
-    workingLife: ~100 full-plate coats
-  # NOT stated by Bambu — inference only. PC/PA are absent from the material
-  # list while the recommended-temp table tops out at 100 C (PET/ABS/ASA);
-  # PC/PA print on hotter beds (~100-110 C). The omission is most likely an
-  # effective-temperature ceiling, not chemical incompatibility — read it as
-  # "not recommended for the highest-temp materials," not "will not adhere."
-  inference: >-
-    Likely a temperature ceiling rather than incompatibility: liquid glue is not
-    listed for PC/PA, whose bed temps exceed the ~100 C top of its recommended
-    range. Inference, not a Bambu claim.
+glues:
+  - id: liquid-glue
+    label: Liquid Glue
+    manufacturer: Bambu Lab
+    sources:
+      - label: Bambu Lab Store — Liquid Glue for Build Plate
+        url: https://us.store.bambulab.com/products/liquid-glue-for-build-plate
+      - label: Bambu Lab Wiki — How to use Bambu Lab Liquid Glue
+        url: https://wiki.bambulab.com/en/general/how-to-use-bbl-liquid-glue
+    plateCompatibility: All Bambu Lab build plates
+    # Materials Bambu explicitly lists (store + wiki agree). Catalog material ids
+    # only; sources also list PET (not a catalog material). PC/PA NOT listed —
+    # see inference.
+    materials: [PLA, PETG, ABS, ASA, TPU]
+    materialsNote: Store and wiki also list PET. Neither lists PC or PA.
+    # Recommended hotbed temperature when using this glue, per material (store).
+    bedTempByMaterial:
+      PLA: { min: 40, max: 60 }
+      PETG: { min: 60, max: 80 }
+      PET: { min: 80, max: 100 }
+      ABS: { min: 90, max: 100 }
+      ASA: { min: 90, max: 100 }
+      TPU: { min: 30, max: 45 }
+    cureTime: Dries in ~30 min to 1 h; up to 24 h to fully cure (varies with temp/humidity)
+    features:
+      - Less residue on the model and easier to clean (water) than glue stick
+      - More uniform application than glue stick
+      - Lower odor; ingredients described as eco-friendly and skin-safe
+    specs:
+      packageVolume: 60 mL
+      workingLife: ~100 full-plate coats
+    # NOT stated by Bambu — inference only. PC/PA are absent from the material
+    # list while the recommended-temp table tops out at 100 C (PET/ABS/ASA);
+    # PC/PA print on hotter beds (~100-110 C). The omission is most likely an
+    # effective-temperature ceiling, not chemical incompatibility — read it as
+    # "not recommended for the highest-temp materials," not "will not adhere."
+    inference: >-
+      Likely a temperature ceiling rather than incompatibility: liquid glue is not
+      listed for PC/PA, whose bed temps exceed the ~100 C top of its recommended
+      range. Inference, not a Bambu claim.
 
-- id: glue-stick
-  label: Glue stick
-  manufacturer: Bambu Lab
+  - id: glue-stick
+    label: Glue stick
+    manufacturer: Bambu Lab
+    sources:
+      - label: Bambu Lab Store — Glue Stick for Build Plate
+        url: https://us.store.bambulab.com/products/glue-stick-for-build-plate
+      - label: Bambu Lab Wiki — How to use Bambu Lab Liquid Glue
+        url: https://wiki.bambulab.com/en/general/how-to-use-bbl-liquid-glue
+    plateCompatibility: All Series
+    # Covers the high-temp materials (PC, PA) that liquid glue omits; wiki calls
+    # out PC/PA suitability specifically.
+    materials: [PLA, ABS, PETG, PC, PA, TPU]
+    materialsNote: >-
+      Wiki highlights suitability for PC and PA. A regular glue stick can also be
+      applied to ease removal of high-adhesion filaments.
+    features:
+      - Water dissolvable
+      - Formaldehyde-free
+    specs:
+      packageWeight: 50 g
+      lifeCycle: 24 months
+
+# Generic, plate-by-plate guidance on whether/which glue to use. NOT
+# product-specific — this is Bambu's general advice per build plate. Per-product
+# adhesion data in the product files takes precedence when present.
+plateGlueGuidance:
   source:
-    label: Bambu Lab Store — Glue Stick for Build Plate
-    url: https://us.store.bambulab.com/products/glue-stick-for-build-plate
-  plateCompatibility: All Series
-  # Covers the high-temp materials (PC, PA) that liquid glue omits.
-  materials: [PLA, ABS, PETG, PC, PA, TPU]
-  features:
-    - Water dissolvable
-    - Formaldehyde-free
-  specs:
-    packageWeight: 50 g
-    lifeCycle: 24 months
+    label: Bambu Lab Wiki — How to use Bambu Lab Liquid Glue
+    url: https://wiki.bambulab.com/en/general/how-to-use-bbl-liquid-glue
+  notes:
+    engineering: >-
+      Apply glue before printing any filament. Glue stick eases part removal but
+      its thickness/uneven coat usually means worse first-layer quality and
+      stability than liquid; liquid glue gives a better first layer but can make
+      removal harder. Choose by filament and conditions.
+    textured-pei: >-
+      Usually no glue needed. For strong-bonding filaments like PETG, apply glue
+      to REDUCE adhesion and ease removal (and avoid whitening/damaging the model
+      when forcing it off).
+    supertack: No glue required.
+    cool-plate: >-
+      (Discontinued.) Suitable only for PLA, and glue should be applied before
+      printing. Other filaments (PETG, ABS) may bulge or stick.
+    # The wiki also covers two plates with no catalog id (kept for completeness):
+    #   Smooth PEI Plate: for high-temp filaments; except PLA, apply glue before
+    #     printing other filaments (e.g. PA6-GF prints better, less warping).
+    #   High Temperature Plate (discontinued): use glue for non-PLA filaments.

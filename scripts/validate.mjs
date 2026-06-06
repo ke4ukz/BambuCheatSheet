@@ -103,18 +103,23 @@ try {
 
 // --- Glues registry ------------------------------------------------------
 try {
-  const glues = load(readFileSync(join(root, 'src/data/glues.yaml'), 'utf8'))
+  const doc = load(readFileSync(join(root, 'src/data/glues.yaml'), 'utf8'))
   const f = 'glues.yaml'
-  if (!Array.isArray(glues)) {
-    err(f, 'expected a list of glues')
+  const list = doc?.glues
+  if (!Array.isArray(list)) {
+    err(f, 'expected a list under "glues:"')
   } else {
-    for (const g of glues) {
+    for (const g of list) {
       const who = `${f} [${g.id ?? '?'}]`
       if (!g.id) err(f, 'glue missing id')
       else if (!ADHESION.has(g.id)) warn(who, `id "${g.id}" not in known adhesion types`)
       if (!g.label) warn(who, 'missing label')
       // Hard rule: every value must be backed by a link.
-      if (!g.source?.url) err(who, 'source missing url (every value needs a source link)')
+      const srcs = g.sources ?? (g.source ? [g.source] : [])
+      if (!srcs.length) err(who, 'no sources')
+      for (const s of srcs) {
+        if (!s?.url) err(who, 'source missing url (every value needs a source link)')
+      }
       for (const m of g.materials ?? []) {
         if (!MATERIALS.has(m)) warn(who, `materials: unknown material "${m}"`)
       }
@@ -122,6 +127,15 @@ try {
         if (m !== 'PET' && !MATERIALS.has(m)) warn(who, `bedTempByMaterial: unknown material "${m}"`)
         if (!isNum(t)) err(who, `bedTempByMaterial.${m} not a number/range`)
       }
+    }
+  }
+  // Plate-by-plate glue guidance (generic, not per-product).
+  const pg = doc?.plateGlueGuidance
+  if (pg) {
+    const who = `${f} [plateGlueGuidance]`
+    if (!pg.source?.url) err(who, 'source missing url (every value needs a source link)')
+    for (const pid of Object.keys(pg.notes ?? {})) {
+      if (!PLATES.has(pid)) warn(who, `note for unknown plate id "${pid}"`)
     }
   }
 } catch (e) {
