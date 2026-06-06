@@ -33,12 +33,73 @@ app as an "X2D Compatibility" card that reads the current nozzle selection.
 
 ---
 
+## Registered source — general material table (NOT yet mined)
+
+Wiki page **"Filament guide – Printer, Nozzle, AMS, Build Plate, Glue
+Compatibility and Required Parameters"**:
+`wiki.bambulab.com/en/general/filament-guide-material-table` (last edited
+2026-05-22). Saved locally as a `.webarchive` (gitignored — never committed).
+**Found via Google, not reachable from wiki nav.** Registered for later; scope
+TBD. It is keyed by **material TYPE (generic)**, not per-product, so folding it
+into the per-product catalog is a modeling decision deferred for now.
+
+Four tables it offers:
+1. **Nozzle compat & temp** — availability per material across 0.2/0.4/0.6/0.8 +
+   HF 0.4/0.6/0.8, hardened-steel requirement, nozzle temp range (±10 °C).
+2. **AMS / AMS lite compat** — open vs. enclosed printer recommendation, and
+   AMS/AMS-lite compatibility with nuances (e.g. ABS → AMS yes / AMS-lite Not
+   Recommended; TPU → AMS Unavailable; brittle/abrasive caveats per brand).
+3. **Build plate settings** — bed temps per material × glue, per material ×
+   plate (Cool/PLA, Engineering, Smooth PEI/High-Temp, Textured PEI), cover
+   removal.
+4. **Storage & specs** — drying requirement, drying conditions (oven / AMS 2 Pro
+   / AMS HT), desiccant need, HDT / impact / tensile star ratings.
+
+Table #2 directly addresses the AMS gap below — could supersede the per-product
+store-paste workflow with this single authoritative source (one source link for
+the whole table).
+
+### Decided plan for mining it: field-dependent authority
+
+Authority is **per-field, not per-source**. When the generic table and a
+per-product source both speak to a value, resolve by *which kind of field* it is:
+
+1. **Per-product value wins when we have one.** A product-specific source (TDS,
+   store page) is a deliberate refinement, so it takes precedence — this is where
+   the nuances of a particular filament live (exact drying temp/time,
+   abrasiveness, mechanical specs).
+2. **Generic table fills the gaps**, labeled in the UI as *"general guidance for
+   <material type>"* so it never reads as product-specific. This is most useful
+   for **device-capability** facts (fits-the-nozzle, mechanically passes the
+   AMS) — Bambu knows its own hardware, and third-party TDS often say nothing
+   about Bambu AMS at all. Best fallback for those.
+3. **Flag only true same-field conflicts.** Show both sources side-by-side ONLY
+   when a per-product value and the generic table cover the *same field* and
+   genuinely disagree. Keep this rare — it fits the every-value-has-a-source
+   rule and avoids drowning the UI in non-conflicts.
+
+Why #3 stays rare: most apparent conflicts are **default-vs-override, not
+contradiction.** The generic table already bakes in product exceptions
+(TPU → AMS "Unavailable" *but* "TPU for AMS" / "TPU 95A HF" called out as OK;
+PLA-CF 0.2 mm "Unavailable" *but* "Bambu PLA-CF: Recommended" at 0.4 mm). Treat
+generic rows as a default with named overrides, not a competing claim.
+
+Sub-field nuance to watch — **AMS compatibility is really two questions:**
+(a) *loads/unloads* (mechanical pass-through → device-knowable, generic table is
+fine) vs (b) *long-term abrasion/wear on the PTFE* (brand/product-specific → needs
+per-product judgement). The wiki itself separates these; don't collapse them into
+one boolean.
+
+---
+
 ## 1. Top filaments to check by hand (AMS + drying)
 
 These are the highest-value everyday filaments (Bambu + Polymaker PLA/PETG/ASA/
 ABS/TPU) whose **AMS compatibility is still unknown**. The Bambu store "Cautions
 for Use" block gives AMS + drying + nozzle limits in one shot — paste it and I'll
 fill it in. (Drying is usually already populated from the TDS; AMS is the gap.)
+**Alternative now available:** the general material table above (table #2) — see
+note before mining.
 
 Bambu — store page is `us.store.bambulab.com/products/<slug>`:
 
