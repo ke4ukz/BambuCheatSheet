@@ -16,7 +16,17 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [liquid-glue] }
+        adhesion: { required: true }
       engineering:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [liquid-glue] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — Support for PA/PET (Cautions for Use)
+      url: https://us.store.bambulab.com/products/support-for-pa-pet
+    # AMS 2 Pro/HT/AMS compatible, AMS lite NOT compatible (bool = regular AMS).
+    # Enclosure required (store; corrects the TDS source's false — this prints at
+    # 280-300C). No accessory table on the page, so no glue/nozzle data to source;
+    # glue-stick stripped from TDS stays type-unspecified. NOTE: discontinued —
+    # Bambu now recommends ABS/ASA for PA/PET support.
+    amsCompatible: true
+    enclosureRequired: true

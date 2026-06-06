@@ -6,15 +6,18 @@ passes (every value is backed by a source link).
 
 ---
 
-## PLA lineup vs. current US store (checked 2026-06-06)
+## Catalog vs. current US store (checked 2026-06-06)
 
 Real but **no current US-store page** (store cautions block unavailable → AMS must
 come from another source, e.g. the wiki material table; don't expect a store
 paste): `bambu-pla-lite` (page 404s), `bambu-pla-dynamic`, `bambu-pla-silk`
-(store now only "PLA Silk+"), `bambu-pla-tough` (store now only "PLA Tough+").
-All four are legit (BambuStudio-profile-sourced) — **keep**, just can't backfill
-AMS the usual way. Store products **missing from our catalog**: PLA Translucent,
-PLA Silk Multi-Color, PLA Basic Gradient (= the unmapped X2D wiki rows in §0).
+(store now only "PLA Silk+"), `bambu-pla-tough` (store now only "PLA Tough+"),
+`bambu-support-w` (store's support lineup is now PLA / PLA-PETG / ABS / PA-PET /
+PVA — no "Support W"). All legit (profile/TDS-sourced) — **keep**, just can't
+backfill AMS the usual way. Also `bambu-support-g` = store "Support for PA/PET"
+(now **discontinued**; AMS still filled from its page before removal). Store
+products **missing from our catalog**: PLA Translucent, PLA Silk Multi-Color,
+PLA Basic Gradient (= the unmapped X2D wiki rows in §0).
 
 ---
 
