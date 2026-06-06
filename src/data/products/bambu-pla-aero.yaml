@@ -33,3 +33,17 @@ sources:
         supported: false
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA Aero (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-aero
+    # Cautions block says All AMS Series Compatible, though a tip warns PLA Aero
+    # is soft and may have AMS load/unload failures. Store recommends ONLY the
+    # 0.4mm nozzle: 0.2 not recommended (min 0.4) AND 0.6/0.8 not recommended
+    # (max 0.4 — tracked in the nozzleSizeMax gap). Store also lists Cool Plate
+    # SuperTack as recommended, but the profile sets supertack temps to 0
+    # (supported:false above) — left as-is; flagged for review.
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      textured-pei:
+        adhesion: { required: false, types: [liquid-glue, glue-stick] }
