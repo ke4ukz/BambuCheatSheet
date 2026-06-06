@@ -196,37 +196,10 @@ function formatValue(param, value) {
         <button v-if="view !== 'lookup'" class="ghost" @click="view = 'lookup'">← Back</button>
         <button v-if="view === 'lookup'" class="ghost" @click="view = 'glue'">Glue</button>
         <button v-if="view === 'lookup'" class="ghost" @click="view = 'sources'">Sources</button>
-        <div class="param-wrap">
-          <button
-            v-if="view === 'lookup'"
-            class="ghost"
-            @click="showSettings = !showSettings; endTour()"
-          >
-            {{ showSettings ? 'Done' : 'Parameters' }}
-          </button>
-          <div v-if="tourStep === 1 && view === 'lookup'" class="tour-pop" role="dialog">
-            <p>Every parameter is shown by default. Tap <strong>Parameters</strong> to hide any you don't need.</p>
-            <div class="tour-foot">
-              <span class="tour-count">1 / {{ TOUR_STEPS }}</span>
-              <span class="tour-actions">
-                <button class="tour-skip" @click="endTour">Dismiss</button>
-                <button class="tour-next" @click="nextStep">Next</button>
-              </span>
-            </div>
-          </div>
-        </div>
       </div>
     </header>
 
     <template v-if="view === 'lookup'">
-    <section v-if="showSettings" class="settings card">
-      <h2>Show parameters</h2>
-      <label v-for="p in parameters" :key="p.key" class="check">
-        <input type="checkbox" :checked="isVisible(p.key)" @change="toggle(p.key)" />
-        <span>{{ p.label }} <em>({{ p.group }})</em></span>
-      </label>
-    </section>
-
     <section class="card search">
       <div v-if="tourStep === 2" class="tour-pop tour-pop-below" role="dialog">
         <p>Jump straight to any filament + plate combo here — type a brand, material, or plate, then pick a match.</p>
@@ -337,6 +310,30 @@ function formatValue(param, value) {
       <label class="check inline">
         <input type="checkbox" v-model="highFlowNozzle" />
         <span>High-flow nozzle</span>
+      </label>
+    </section>
+
+    <div class="param-wrap param-bar">
+      <button class="ghost" @click="showSettings = !showSettings; endTour()">
+        {{ showSettings ? 'Done' : 'Parameters' }}
+      </button>
+      <div v-if="tourStep === 1" class="tour-pop tour-pop-below" role="dialog">
+        <p>Every parameter is shown by default. Tap <strong>Parameters</strong> to hide any you don't need.</p>
+        <div class="tour-foot">
+          <span class="tour-count">1 / {{ TOUR_STEPS }}</span>
+          <span class="tour-actions">
+            <button class="tour-skip" @click="endTour">Dismiss</button>
+            <button class="tour-next" @click="nextStep">Next</button>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <section v-if="showSettings" class="settings card">
+      <h2>Show parameters</h2>
+      <label v-for="p in parameters" :key="p.key" class="check">
+        <input type="checkbox" :checked="isVisible(p.key)" @change="toggle(p.key)" />
+        <span>{{ p.label }} <em>({{ p.group }})</em></span>
       </label>
     </section>
 
@@ -495,10 +492,18 @@ function formatValue(param, value) {
     <footer>
       <p>Reference only — not for direct printer use. Always verify against the manufacturer.</p>
       <p>
-        © 2026 Jonathan Dean. Not affiliated with, endorsed by, or sponsored by
-        Bambu Lab or any filament manufacturer. “Bambu Lab,” “Polymaker,” and all
-        other product and brand names are trademarks™ or registered® trademarks of
-        their respective owners.
+        The <strong>code and design</strong> of this site are © 2026 Jonathan Dean,
+        licensed under
+        <a href="https://github.com/ke4ukz/BambuCheatSheet/blob/main/LICENSE" target="_blank" rel="noopener">GPLv3</a>.
+        The <strong>filament data</strong> it presents is factual information
+        compiled from each manufacturer's published sources — it is not claimed as
+        original or proprietary and remains attributable to the respective
+        manufacturers (the underlying facts are not mine).
+      </p>
+      <p>
+        Not affiliated with, endorsed by, or sponsored by Bambu Lab or any filament
+        manufacturer. “Bambu Lab,” “Polymaker,” and all other product and brand
+        names are trademarks™ or registered® trademarks of their respective owners.
       </p>
       <p>
         <a href="https://github.com/ke4ukz/BambuCheatSheet/issues" target="_blank" rel="noopener">Report issues on GitHub</a>
