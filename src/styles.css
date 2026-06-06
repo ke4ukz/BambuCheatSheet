@@ -91,6 +91,103 @@ button.ghost {
   gap: 0.5rem;
 }
 
+.param-wrap {
+  position: relative;
+}
+
+.search {
+  position: relative;
+}
+
+.tour-pop {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  z-index: 10;
+  width: 16rem;
+  background: var(--card);
+  border: 1px solid var(--accent);
+  border-radius: 10px;
+  padding: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+}
+
+/* Search/favorites popups anchor under the left edge of their target; the
+   header popup hangs off the right edge under the Parameters button. */
+.tour-pop-below {
+  right: auto;
+  left: 0;
+}
+
+.tour-pop-right {
+  left: auto;
+  right: 0;
+}
+
+.tour-pop::before {
+  content: '';
+  position: absolute;
+  top: -6px;
+  right: 1.5rem;
+  width: 10px;
+  height: 10px;
+  background: var(--card);
+  border-left: 1px solid var(--accent);
+  border-top: 1px solid var(--accent);
+  transform: rotate(45deg);
+}
+
+.tour-pop-below::before {
+  right: auto;
+  left: 1.5rem;
+}
+
+.tour-pop-right::before {
+  left: auto;
+  right: 1.5rem;
+}
+
+.tour-pop p {
+  margin: 0 0 0.7rem;
+  font-size: 0.85rem;
+  line-height: 1.4;
+}
+
+.tour-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.tour-count {
+  color: var(--muted);
+  font-size: 0.75rem;
+}
+
+.tour-actions {
+  display: flex;
+  gap: 0.4rem;
+}
+
+.tour-skip {
+  background: transparent;
+  color: var(--muted);
+  border: none;
+  padding: 0.35rem 0.5rem;
+  cursor: pointer;
+}
+
+.tour-next {
+  background: var(--accent);
+  color: #0f1115;
+  border: none;
+  border-radius: 6px;
+  padding: 0.35rem 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
 .sources-intro {
   color: var(--muted);
   font-size: 0.85rem;
@@ -265,6 +362,7 @@ button.ghost {
 .with-star {
   display: flex;
   gap: 0.4rem;
+  position: relative;
 }
 
 .with-star select {
@@ -341,4 +439,96 @@ footer a {
 
 footer a:hover {
   color: var(--accent);
+}
+
+/* X2D dual-hotend compatibility card */
+.x2d h2 {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.x2d-src {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--muted);
+}
+.x2d-src:hover {
+  color: var(--accent);
+}
+.x2d-sel {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+}
+.x2d-current {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+.x2d-line {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.x2d-tbl {
+  color: var(--muted);
+}
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.55rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+/* Rating colors, shared by badges and grid cells. */
+.b-ok          { background: rgba(52, 168, 83, 0.15);  color: #5fd07f; border-color: rgba(52, 168, 83, 0.4); }
+.b-caution     { background: rgba(224, 168, 0, 0.15);  color: #e0a800; border-color: rgba(224, 168, 0, 0.4); }
+.b-discouraged { background: rgba(232, 120, 30, 0.15); color: #f0904a; border-color: rgba(232, 120, 30, 0.4); }
+.b-no          { background: rgba(220, 60, 60, 0.15);  color: #f06b6b; border-color: rgba(220, 60, 60, 0.4); }
+
+.x2d-toggle {
+  margin-top: 0.85rem;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.7rem;
+}
+.x2d-grid-wrap {
+  margin-top: 0.75rem;
+  overflow-x: auto;
+}
+.x2d-grid {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.85rem;
+}
+.x2d-grid th,
+.x2d-grid td {
+  border: 1px solid var(--border);
+  padding: 0.3rem 0.45rem;
+  text-align: center;
+}
+.x2d-grid thead th,
+.x2d-grid tbody th {
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+}
+.x2d-grid tbody th {
+  text-align: left;
+}
+.x2d-grid .cell {
+  display: inline-block;
+  min-width: 1.4rem;
+  padding: 0.05rem 0.35rem;
+  border-radius: 6px;
+  font-weight: 700;
+}
+.x2d-legendnote {
+  margin: 0.5rem 0 0;
+  font-size: 0.78rem;
 }

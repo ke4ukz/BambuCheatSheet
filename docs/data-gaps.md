@@ -6,6 +6,33 @@ passes (every value is backed by a source link).
 
 ---
 
+## 0. X2D dual-hotend compatibility (`src/data/x2d.yaml`)
+
+Added the Bambu **X2D** filament-compatibility matrix from the wiki
+(`wiki.bambulab.com/en/x2d/manual/filament-compatibility`) — the one source for
+the whole file. Three sub-tables per filament, each rated across the 7 nozzle
+columns (0.2/0.4/0.6/0.8 standard + HF 0.4/0.6/0.8): **main hotend**,
+**auxiliary (second) hotend**, and **filament track switch**. Surfaced in the
+app as an "X2D Compatibility" card that reads the current nozzle selection.
+
+- **46 wiki rows; 42 join to catalog products.** Unmapped (wiki lists them, we
+  don't carry them): **PLA Basic Gradient, PLA Translucent, PLA Silk Dual Color,
+  TPU 85A**. Kept in `x2d.yaml` with `productId: null` for completeness / a
+  future comparison table.
+- **2 Bambu catalog products have no X2D row:** `bambu-pa-cf` (PA-CF) and
+  `bambu-support-w` (Support W) — the wiki table doesn't list them. Card hidden
+  for those.
+- Tables are **not** row-identical: aux lacks PLA Basic Gradient / PLA Silk Dual
+  Color; track lacks PLA Dynamic / PLA Tough / PLA Silk Dual Color. A missing
+  table for a filament shows as "— not listed", not as an error.
+- **X2D software constraints NOT on this wiki page** (so not displayed as sourced
+  values; recorded here only): both hotends must use the **same nozzle
+  diameter** in one print, and Bambu Studio blocks **mixing high- and
+  low-temperature filaments** in one print (e.g. ABS + PVA). Find a citable
+  source before putting these in the app (the hard source-link rule).
+
+---
+
 ## 1. Top filaments to check by hand (AMS + drying)
 
 These are the highest-value everyday filaments (Bambu + Polymaker PLA/PETG/ASA/

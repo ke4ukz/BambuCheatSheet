@@ -6,9 +6,12 @@ import { useFavorites } from './composables/useFavorites'
 import { resolveParameter, plateUnsupported, nozzleWarnings } from './lib/resolve'
 import { searchCombos } from './lib/search'
 import { collectSources } from './lib/sources'
+import {
+  x2dForProduct, x2dColumn, x2dRating, x2dSource, x2dProductIds, x2dColumns, x2dLegend, X2D_TABLES,
+} from './lib/x2d'
 
 const { plates, materials, parameters, products, nozzleSizes, nozzleTypes } = useCatalog()
-const { isVisible, toggle } = useVisibility(parameters)
+const { isVisible, toggle } = useVisibility()
 const { isFavorite, toggle: toggleFavorite } = useFavorites()
 
 const ADHESION_LABELS = {
@@ -27,8 +30,30 @@ const nozzleSize = ref(nozzleSizes.includes(0.4) ? 0.4 : nozzleSizes[0])
 const nozzleType = ref(nozzleTypes[0]?.id)
 const highFlowNozzle = ref(false)
 const showSettings = ref(false)
+const showX2dFull = ref(false)
 const view = ref('lookup')
-const sourceGroups = collectSources(products)
+const sourceGroups = collectSources(products, [
+  { source: x2dSource, productIds: x2dProductIds },
+])
+
+// First-visit walkthrough: a 3-step tour pointing at the Parameters button,
+// the search box, and the favorites star. Completion is remembered in
+// localStorage so it only runs once.
+const INTRO_KEY = 'bcs-intro-seen'
+const TOUR_STEPS = 3
+const tourStep = ref(localStorage.getItem(INTRO_KEY) === null ? 1 : 0)
+function nextStep() {
+  if (tourStep.value >= TOUR_STEPS) endTour()
+  else tourStep.value++
+}
+function endTour() {
+  tourStep.value = 0
+  try {
+    localStorage.setItem(INTRO_KEY, '1')
+  } catch {
+    /* private mode — fine, tour just runs again next time */
+  }
+}
 
 const query = ref('')
 const searchFocused = ref(false)
@@ -98,6 +123,21 @@ const unsupported = computed(
   () => selectedProduct.value && plateUnsupported(selectedProduct.value, plateId.value)
 )
 
+// X2D dual-hotend compatibility for the selected filament + current nozzle.
+const x2dEntry = computed(() => x2dForProduct(productId.value))
+const x2dColumnKey = computed(() => x2dColumn(nozzleSize.value, highFlowNozzle.value))
+const x2dRows = computed(() =>
+  X2D_TABLES.map((t) => ({
+    ...t,
+    rating: x2dRating(x2dEntry.value, t.key, x2dColumnKey.value),
+  }))
+)
+
+const X2D_SYMBOL = { ok: '✓', caution: '!', discouraged: '‼', no: '✕' }
+const x2dSymbol = (code) => X2D_SYMBOL[code] ?? '·'
+const x2dLegendLabel = (table, code) => x2dLegend[table]?.[code] ?? code
+const x2dColLabel = (c) => (c.startsWith('hf-') ? `HF ${c.slice(3)}` : `${c} mm`)
+
 // Group visible parameters by their `group`, resolving each against the selection.
 const groupedResults = computed(() => {
   const product = selectedProduct.value
@@ -155,9 +195,25 @@ function formatValue(param, value) {
         <button class="ghost" @click="view = view === 'sources' ? 'lookup' : 'sources'">
           {{ view === 'sources' ? '← Back' : 'Sources' }}
         </button>
-        <button v-if="view === 'lookup'" class="ghost" @click="showSettings = !showSettings">
-          {{ showSettings ? 'Done' : 'Parameters' }}
-        </button>
+        <div class="param-wrap">
+          <button
+            v-if="view === 'lookup'"
+            class="ghost"
+            @click="showSettings = !showSettings; endTour()"
+          >
+            {{ showSettings ? 'Done' : 'Parameters' }}
+          </button>
+          <div v-if="tourStep === 1 && view === 'lookup'" class="tour-pop" role="dialog">
+            <p>Every parameter is shown by default. Tap <strong>Parameters</strong> to hide any you don't need.</p>
+            <div class="tour-foot">
+              <span class="tour-count">1 / {{ TOUR_STEPS }}</span>
+              <span class="tour-actions">
+                <button class="tour-skip" @click="endTour">Dismiss</button>
+                <button class="tour-next" @click="nextStep">Next</button>
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     </header>
 
@@ -171,6 +227,16 @@ function formatValue(param, value) {
     </section>
 
     <section class="card search">
+      <div v-if="tourStep === 2" class="tour-pop tour-pop-below" role="dialog">
+        <p>Jump straight to any filament + plate combo here — type a brand, material, or plate, then pick a match.</p>
+        <div class="tour-foot">
+          <span class="tour-count">2 / {{ TOUR_STEPS }}</span>
+          <span class="tour-actions">
+            <button class="tour-skip" @click="endTour">Dismiss</button>
+            <button class="tour-next" @click="nextStep">Next</button>
+          </span>
+        </div>
+      </div>
       <label class="search-label">
         <span>Quick search</span>
         <input
@@ -233,6 +299,16 @@ function formatValue(param, value) {
           >
             {{ isFavorite(productId) ? '★' : '☆' }}
           </button>
+          <div v-if="tourStep === 3" class="tour-pop tour-pop-below tour-pop-right" role="dialog">
+            <p>Star a filament to favorite it, then use <strong>★ Favorites only</strong> above to filter the list to just those.</p>
+            <div class="tour-foot">
+              <span class="tour-count">3 / {{ TOUR_STEPS }}</span>
+              <span class="tour-actions">
+                <button class="tour-skip" @click="endTour">Dismiss</button>
+                <button class="tour-next" @click="nextStep">Done</button>
+              </span>
+            </div>
+          </div>
         </div>
       </label>
 
@@ -270,6 +346,61 @@ function formatValue(param, value) {
       <div v-if="unsupported" class="warning">
         ⚠ This plate is marked as not recommended for this filament.
       </div>
+
+      <section v-if="x2dEntry" class="card x2d">
+        <h2>
+          X2D Compatibility
+          <a class="x2d-src" :href="x2dSource.url" target="_blank" rel="noopener">{{ x2dSource.label }}</a>
+        </h2>
+        <p v-if="!x2dColumnKey" class="x2d-na muted">
+          The X2D has no high-flow 0.2 mm nozzle — choose a different size or turn off high-flow to see ratings.
+        </p>
+        <template v-else>
+          <p class="x2d-sel muted">
+            For the selected {{ highFlowNozzle ? 'high-flow' : 'standard' }} {{ nozzleSize }} mm nozzle:
+          </p>
+          <div class="x2d-current">
+            <div v-for="r in x2dRows" :key="r.key" class="x2d-line">
+              <span class="x2d-tbl">{{ r.label }}</span>
+              <span v-if="r.rating" class="badge" :class="'b-' + r.rating.code">
+                {{ x2dSymbol(r.rating.code) }} {{ r.rating.label }}
+              </span>
+              <span v-else class="value muted">— not listed</span>
+            </div>
+          </div>
+        </template>
+
+        <button class="ghost x2d-toggle" @click="showX2dFull = !showX2dFull">
+          {{ showX2dFull ? 'Hide' : 'Show' }} all nozzle sizes
+        </button>
+        <div v-if="showX2dFull" class="x2d-grid-wrap">
+          <table class="x2d-grid">
+            <thead>
+              <tr>
+                <th></th>
+                <th v-for="c in x2dColumns" :key="c">{{ x2dColLabel(c) }}</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="t in X2D_TABLES" :key="t.key">
+                <th>{{ t.label }}</th>
+                <td v-for="c in x2dColumns" :key="c">
+                  <span
+                    v-if="x2dEntry[t.key]?.[c]"
+                    class="cell"
+                    :class="'b-' + x2dEntry[t.key][c]"
+                    :title="x2dLegendLabel(t.key, x2dEntry[t.key][c])"
+                  >{{ x2dSymbol(x2dEntry[t.key][c]) }}</span>
+                  <span v-else class="muted">·</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="x2d-legendnote muted">
+            ✓ Available · ! Not recommended · ‼ Highly not recommended · ✕ Unavailable
+          </p>
+        </div>
+      </section>
 
       <section v-for="block in groupedResults" :key="block.group" class="card">
         <h2>{{ block.group }}</h2>

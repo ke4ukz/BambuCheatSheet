@@ -74,5 +74,32 @@ for (const file of readdirSync(dir).filter((f) => f.endsWith('.yaml')).sort()) {
   }
 }
 
+// --- X2D compatibility matrix --------------------------------------------
+const X2D_CODES = new Set(['ok', 'caution', 'discouraged', 'no'])
+try {
+  const x2d = load(readFileSync(join(root, 'src/data/x2d.yaml'), 'utf8'))
+  const f = 'x2d.yaml'
+  // Hard rule: every value must be backed by a link.
+  if (!x2d?.source?.url) err(f, 'source missing url (every value needs a source link)')
+  const cols = new Set(x2d?.columns ?? [])
+  if (!cols.size) err(f, 'no columns defined')
+  for (const row of x2d?.filaments ?? []) {
+    const who = `${f} [${row.name ?? '?'}]`
+    if (!row.name) err(f, 'filament row missing name')
+    if (row.productId != null && !ids.has(row.productId)) {
+      err(who, `productId "${row.productId}" matches no product`)
+    }
+    for (const table of ['main', 'aux', 'track']) {
+      if (!row[table]) continue
+      for (const [col, code] of Object.entries(row[table])) {
+        if (!cols.has(col)) err(who, `${table}: unknown column "${col}"`)
+        if (!X2D_CODES.has(code)) err(who, `${table}.${col}: unknown rating "${code}"`)
+      }
+    }
+  }
+} catch (e) {
+  err('x2d.yaml', `load/validate error: ${e.message}`)
+}
+
 console.log(`\n${ids.size} products — ${errors} errors, ${warns} warnings`)
 process.exit(errors ? 1 : 0)

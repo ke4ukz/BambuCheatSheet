@@ -1,0 +1,1198 @@
+# X2D filament compatibility matrix — Bambu Lab X2D (dual-hotend) printer.
+#
+# Single authoritative source: the Bambu wiki page below. Three tables:
+#   main  = main hotend (3 levels: ok / caution / no)
+#   aux   = auxiliary (second) hotend (4 levels, adds "discouraged")
+#   track = filament track switch — whether the filament jams in the switch,
+#           INDEPENDENT of hotend compatibility (per the wiki).
+# Each table is keyed by nozzle column (see `columns`). A table may be absent
+# for a filament if the wiki did not list it there.
+#
+# productId joins a row to a catalog product in src/data/products/. null means
+# the wiki lists a filament we do not (yet) carry in the catalog.
+#
+# Regenerate note: transcribed from the wiki table; verify against `source.url`.
+
+source:
+  label: Bambu Lab Wiki — X2D Filament Compatibility Guide
+  url: https://wiki.bambulab.com/en/x2d/manual/filament-compatibility
+columns:
+  - "0.2"
+  - "0.4"
+  - "0.6"
+  - "0.8"
+  - hf-0.4
+  - hf-0.6
+  - hf-0.8
+legend:
+  main:
+    ok: Available
+    caution: Not recommended
+    "no": Unavailable
+  aux:
+    ok: Available
+    caution: Not recommended
+    discouraged: Highly not recommended
+    "no": Unavailable
+  track:
+    ok: Available
+    caution: Not recommended
+    discouraged: Highly not recommended
+    "no": Unavailable
+filaments:
+  - name: PLA Basic
+    productId: bambu-pla-basic
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Matte
+    productId: bambu-pla-matte
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Lite
+    productId: bambu-pla-lite
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Basic Gradient
+    productId: null
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Metal
+    productId: bambu-pla-metal
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Translucent
+    productId: null
+    main:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Tough+
+    productId: bambu-pla-tough-plus
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Marble
+    productId: bambu-pla-marble
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Sparkle
+    productId: bambu-pla-sparkle
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Wood
+    productId: bambu-pla-wood
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Galaxy
+    productId: bambu-pla-galaxy
+    main:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Glow
+    productId: bambu-pla-glow
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: PLA Silk+
+    productId: bambu-pla-silk-plus
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: PLA Silk Dual Color
+    productId: null
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: PLA Silk
+    productId: bambu-pla-silk
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": discouraged
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: PLA-CF
+    productId: bambu-pla-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: PLA Aero
+    productId: bambu-pla-aero
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: PLA Dynamic
+    productId: bambu-pla-dynamic
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PLA Tough
+    productId: bambu-pla-tough
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PETG HF
+    productId: bambu-petg-hf
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PETG Basic
+    productId: bambu-petg-basic
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PETG Translucent
+    productId: bambu-petg-translucent
+    main:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PETG-CF
+    productId: bambu-petg-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: ABS
+    productId: bambu-abs
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: ABS-GF
+    productId: bambu-abs-gf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: ASA
+    productId: bambu-asa
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: ASA Aero
+    productId: bambu-asa-aero
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: ok
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": "no"
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: ASA-CF
+    productId: bambu-asa-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: PC
+    productId: bambu-pc
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: PC FR
+    productId: bambu-pc-fr
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: TPU for AMS
+    productId: bambu-tpu-for-ams
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+  - name: TPU 95A HF
+    productId: bambu-tpu-95a-hf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: TPU 85A
+    productId: null
+    main:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: "no"
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: TPU 90A
+    productId: bambu-tpu-90a
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: TPU 95A
+    productId: bambu-tpu-95a
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: Support for ABS
+    productId: bambu-support-for-abs
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+  - name: Support for PLA/PETG
+    productId: bambu-support-for-pla-petg
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: Support for PA/PET
+    productId: bambu-support-g
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: Support for PLA
+    productId: bambu-support-for-pla
+    main:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": caution
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": ok
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PVA
+    productId: bambu-pva
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PAHT-CF
+    productId: bambu-paht-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PA6-GF
+    productId: bambu-pa6-gf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+    track:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: ok
+      hf-0.6: ok
+      hf-0.8: ok
+  - name: PET-CF
+    productId: bambu-pet-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": caution
+      "0.6": caution
+      "0.8": caution
+      hf-0.4: caution
+      hf-0.6: caution
+      hf-0.8: caution
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: PA6-CF
+    productId: bambu-pa6-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": discouraged
+      "0.6": discouraged
+      "0.8": discouraged
+      hf-0.4: discouraged
+      hf-0.6: discouraged
+      hf-0.8: discouraged
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: PPA-CF
+    productId: bambu-ppa-cf
+    main:
+      "0.2": "no"
+      "0.4": ok
+      "0.6": ok
+      "0.8": ok
+      hf-0.4: caution
+      hf-0.6: ok
+      hf-0.8: ok
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+  - name: PPS-CF
+    productId: bambu-pps-cf
+    main:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    aux:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"
+    track:
+      "0.2": "no"
+      "0.4": "no"
+      "0.6": "no"
+      "0.8": "no"
+      hf-0.4: "no"
+      hf-0.6: "no"
+      hf-0.8: "no"

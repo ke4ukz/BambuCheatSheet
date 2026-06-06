@@ -10,15 +10,11 @@ function loadHidden() {
   }
 }
 
-// Seed defaults from the registry the first time (params with defaultVisible:false
-// start hidden), then remember the user's choices in localStorage.
-export function useVisibility(parameters) {
+// Everything is visible on first visit; the user can hide parameters via the
+// Parameters panel, and we remember those choices in localStorage.
+export function useVisibility() {
   const stored = localStorage.getItem(STORAGE_KEY)
-  const hidden = reactive(
-    stored !== null
-      ? loadHidden()
-      : new Set(parameters.filter((p) => p.defaultVisible === false).map((p) => p.key))
-  )
+  const hidden = reactive(stored !== null ? loadHidden() : new Set())
 
   watch(
     () => [...hidden],
