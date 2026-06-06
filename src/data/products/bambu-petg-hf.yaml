@@ -17,7 +17,16 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — PETG HF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/petg-hf
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
