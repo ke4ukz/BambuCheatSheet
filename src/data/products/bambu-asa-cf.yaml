@@ -17,7 +17,7 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         supported: false
       supertack:
@@ -25,3 +25,14 @@ sources:
       engineering:
         # TDS lists "Textured PEI Plate / Smooth PEI Plate" only; engineering plate not mentioned
         supported: false
+  - source:
+      label: Bambu Lab Store — ASA-CF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/asa-cf
+    # AMS 2 Pro/HT/AMS ok, AMS lite NOT compatible (bool reflects regular AMS).
+    # hardened/abrasive/nozzleSizeMin/enclosure already set; store corroborates.
+    # Glue: store recommends Glue Stick, explicitly NOT Liquid Glue (high bed
+    # temp exceeds liquid glue's ceiling) — so types is [glue-stick] only.
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [glue-stick] }
