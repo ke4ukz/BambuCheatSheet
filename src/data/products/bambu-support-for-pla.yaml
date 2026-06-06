@@ -17,10 +17,23 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 35, max: 45 }
-        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         bedTemp: { min: 35, max: 45 }
-        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+        adhesion: { required: true }
       supertack:
         bedTemp: { min: 35, max: 45 }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — Support for PLA (New Version, Cautions for Use)
+      url: https://us.store.bambulab.com/products/support-for-pla-new
+    # All AMS Series compatible. Glue: both liquid + stick recommended (moved
+    # here from the TDS source, which names no glue type). Specs mostly N/A.
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      supertack:
         adhesion: { required: true, types: [liquid-glue, glue-stick] }
