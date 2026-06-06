@@ -5,3 +5,6 @@ dist
 
 # Saved source pages (Safari webarchives) kept locally for reference only
 *.webarchive
+
+# Downloaded TDS/MSDS/RoHS PDFs kept locally for reference only
+temp_docs/
