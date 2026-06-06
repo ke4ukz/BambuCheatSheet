@@ -6,6 +6,30 @@ passes (every value is backed by a source link).
 
 ---
 
+## Deferred data points — new fields to add later (TODO)
+
+Both raised 2026-06-06; both **deferred** (each needs a new field = schema +
+validator + display, so not pure data-entry). Capture later.
+
+1. **`temperatureClass` (low | high)** — to answer "can these two filaments
+   print together?" Bambu blocks mixing high- and low-temp filaments in one
+   print (see §0 X2D note). **Source to check first:** the **H2D wiki article on
+   overriding that restriction** — read it to confirm whether there's a *hard*
+   low/high boundary (and which materials fall where) before modeling it.
+   Existing proxies in the data today: `enclosureRequired` (true ≈ high-temp) and
+   `chamberTemp`. (Naming flag: this project's dual-nozzle data is under "X2D" /
+   `x2d.yaml`; user referred to "H2D" — verify whether these are the same printer
+   before citing.)
+2. **`spoolType` (standard | high-temp reusable)** — which empty reusable spool
+   you need when ordering a *refill*. Citable from the sales page: ABS/ASA say
+   "Comes with High Temperature Reusable Spool"; PLA/PETG just say "refill needs
+   a spool" (= standard). Likely correlates 1:1 with `temperatureClass` (heat is
+   the reason), but sources differ and they answer different questions — record
+   both, watch for divergence, and collapse to one only if the data proves them
+   always identical.
+
+---
+
 ## 0. X2D dual-hotend compatibility (`src/data/x2d.yaml`)
 
 Added the Bambu **X2D** filament-compatibility matrix from the wiki
