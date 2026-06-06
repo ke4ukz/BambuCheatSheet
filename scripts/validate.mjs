@@ -101,5 +101,32 @@ try {
   err('x2d.yaml', `load/validate error: ${e.message}`)
 }
 
+// --- Glues registry ------------------------------------------------------
+try {
+  const glues = load(readFileSync(join(root, 'src/data/glues.yaml'), 'utf8'))
+  const f = 'glues.yaml'
+  if (!Array.isArray(glues)) {
+    err(f, 'expected a list of glues')
+  } else {
+    for (const g of glues) {
+      const who = `${f} [${g.id ?? '?'}]`
+      if (!g.id) err(f, 'glue missing id')
+      else if (!ADHESION.has(g.id)) warn(who, `id "${g.id}" not in known adhesion types`)
+      if (!g.label) warn(who, 'missing label')
+      // Hard rule: every value must be backed by a link.
+      if (!g.source?.url) err(who, 'source missing url (every value needs a source link)')
+      for (const m of g.materials ?? []) {
+        if (!MATERIALS.has(m)) warn(who, `materials: unknown material "${m}"`)
+      }
+      for (const [m, t] of Object.entries(g.bedTempByMaterial ?? {})) {
+        if (m !== 'PET' && !MATERIALS.has(m)) warn(who, `bedTempByMaterial: unknown material "${m}"`)
+        if (!isNum(t)) err(who, `bedTempByMaterial.${m} not a number/range`)
+      }
+    }
+  }
+} catch (e) {
+  err('glues.yaml', `load/validate error: ${e.message}`)
+}
+
 console.log(`\n${ids.size} products — ${errors} errors, ${warns} warnings`)
 process.exit(errors ? 1 : 0)

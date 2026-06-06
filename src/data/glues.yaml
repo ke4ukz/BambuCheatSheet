@@ -1,0 +1,58 @@
+# Bed-adhesion products (glues) the tool knows about. `id` matches the adhesion
+# type ids referenced by product files under each plate's `adhesion.types`.
+# Only adhesives with a sourced product page are listed here. Per the project
+# rule, every value carries a source link. Generic adhesives some products
+# reference (hairspray, blue-tape, kapton-tape) have no Bambu product page and
+# are intentionally absent until a citable source exists.
+
+- id: liquid-glue
+  label: Liquid Glue
+  manufacturer: Bambu Lab
+  source:
+    label: Bambu Lab Store — Liquid Glue for Build Plate
+    url: https://us.store.bambulab.com/products/liquid-glue-for-build-plate
+  plateCompatibility: All Bambu Lab build plates
+  # Materials Bambu explicitly lists. Catalog material ids only; the page also
+  # lists PET (not a catalog material). PC and PA are NOT listed — see inference.
+  materials: [PLA, PETG, ABS, ASA, TPU]
+  materialsNote: Source also lists PET. Does not list PC or PA.
+  # Recommended hotbed temperature when using this glue, per material.
+  bedTempByMaterial:
+    PLA: { min: 40, max: 60 }
+    PETG: { min: 60, max: 80 }
+    PET: { min: 80, max: 100 }
+    ABS: { min: 90, max: 100 }
+    ASA: { min: 90, max: 100 }
+    TPU: { min: 30, max: 45 }
+  features:
+    - Less residue on the model and easier to clean (water) than glue stick
+    - More uniform application than glue stick
+    - Lower odor; ingredients described as eco-friendly and skin-safe
+  specs:
+    packageVolume: 60 mL
+    workingLife: ~100 full-plate coats
+  # NOT stated by Bambu — inference only. PC/PA are absent from the material
+  # list while the recommended-temp table tops out at 100 C (PET/ABS/ASA);
+  # PC/PA print on hotter beds (~100-110 C). The omission is most likely an
+  # effective-temperature ceiling, not chemical incompatibility — read it as
+  # "not recommended for the highest-temp materials," not "will not adhere."
+  inference: >-
+    Likely a temperature ceiling rather than incompatibility: liquid glue is not
+    listed for PC/PA, whose bed temps exceed the ~100 C top of its recommended
+    range. Inference, not a Bambu claim.
+
+- id: glue-stick
+  label: Glue stick
+  manufacturer: Bambu Lab
+  source:
+    label: Bambu Lab Store — Glue Stick for Build Plate
+    url: https://us.store.bambulab.com/products/glue-stick-for-build-plate
+  plateCompatibility: All Series
+  # Covers the high-temp materials (PC, PA) that liquid glue omits.
+  materials: [PLA, ABS, PETG, PC, PA, TPU]
+  features:
+    - Water dissolvable
+    - Formaldehyde-free
+  specs:
+    packageWeight: 50 g
+    lifeCycle: 24 months
