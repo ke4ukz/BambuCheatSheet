@@ -538,6 +538,39 @@ footer a:hover {
   font-size: 0.78rem;
 }
 
+/* Guides hub */
+.guides-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.guides-list li {
+  margin-bottom: 0.6rem;
+}
+.guide-link {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.7rem 0.85rem;
+  cursor: pointer;
+  color: var(--text);
+}
+.guide-link:hover {
+  border-color: var(--accent);
+}
+.guide-title {
+  font-weight: 600;
+}
+.guide-desc {
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
 /* Glue reference page */
 .glue-entry {
   margin-bottom: 1.5rem;

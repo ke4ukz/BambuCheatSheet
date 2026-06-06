@@ -33,6 +33,10 @@ const highFlowNozzle = ref(false)
 const showSettings = ref(false)
 const showX2dFull = ref(false)
 const view = ref('lookup')
+// Back navigation: glue is a sub-page of the guides hub; everything else
+// returns to the main lookup.
+const BACK_TARGET = { glue: 'guides', guides: 'lookup', sources: 'lookup' }
+const goBack = () => (view.value = BACK_TARGET[view.value] ?? 'lookup')
 const sourceGroups = collectSources(products, [
   { source: x2dSource, productIds: x2dProductIds },
 ])
@@ -193,8 +197,8 @@ function formatValue(param, value) {
     <header>
       <h1>Bambu Cheat Sheet</h1>
       <div class="nav">
-        <button v-if="view !== 'lookup'" class="ghost" @click="view = 'lookup'">← Back</button>
-        <button v-if="view === 'lookup'" class="ghost" @click="view = 'glue'">Glue</button>
+        <button v-if="view !== 'lookup'" class="ghost" @click="goBack()">← Back</button>
+        <button v-if="view === 'lookup'" class="ghost" @click="view = 'guides'">Guides</button>
         <button v-if="view === 'lookup'" class="ghost" @click="view = 'sources'">Sources</button>
       </div>
     </header>
@@ -441,6 +445,21 @@ function formatValue(param, value) {
           </li>
         </ul>
       </div>
+    </section>
+
+    <section v-else-if="view === 'guides'" class="card guides-page">
+      <h2>Guides</h2>
+      <p class="sources-intro">
+        Quick-reference tables compiled from Bambu's documentation. More to come.
+      </p>
+      <ul class="guides-list">
+        <li>
+          <button class="guide-link" @click="view = 'glue'">
+            <span class="guide-title">Glue</span>
+            <span class="guide-desc">Which adhesive for each material &amp; build plate</span>
+          </button>
+        </li>
+      </ul>
     </section>
 
     <section v-else-if="view === 'glue'" class="card glue-page">
