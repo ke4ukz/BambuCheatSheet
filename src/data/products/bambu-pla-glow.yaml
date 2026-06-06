@@ -34,3 +34,15 @@ sources:
         adhesion: { required: false, types: [] }
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA Glow (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-glow
+    # Store: hardened steel required, stainless NOT compatible (corroborates the
+    # profile's required_nozzle_HRC). AMS 2 Pro/HT/AMS ok (faster wear); AMS lite
+    # NOT compatible (hard/rough -> feeding failures) — single bool can't express
+    # the AMS-lite exclusion, so amsCompatible:true reflects regular AMS.
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      textured-pei:
+        adhesion: { required: false, types: [liquid-glue, glue-stick] }
