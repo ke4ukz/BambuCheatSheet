@@ -17,11 +17,24 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         supported: false
       supertack:
         supported: false
       engineering:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — ABS-GF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/abs-gf
+    # AMS 2 Pro/HT/AMS ok, AMS lite NOT compatible (bool reflects regular AMS;
+    # comparison table also lists AMS Compatibility: YES). hardened/abrasive/
+    # nozzleSizeMin/enclosure already set; store corroborates. Glue: both liquid
+    # + stick recommended (bed 80-100C within liquid's ABS range).
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
