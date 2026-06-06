@@ -56,6 +56,35 @@ validator + display, so not pure data-entry). Capture later.
 
 ---
 
+## Future feature — faceted comparison / property filtering (BIG, deferred)
+
+Goal (user, 2026-06-06): let a user pick criteria — quantitative ("HDT > 80 °C")
+and qualitative ("UV stable", "glossy finish") — and get a comparison table of
+which filaments **do / don't / might** meet them. Extends the previously-floated
+"multi-filament comparison table" idea (see [[project-status]] / §0).
+
+We currently record **no** mechanical/physical properties and **no** qualitative
+attribute tags. The raw data has been on every store page + TDS all along (the
+"Physical/Mechanical Properties" spec table and the "Product Features" bullets) —
+so this needs a **full re-pass over all ~126 products** (the user accepts this).
+Note many specialty/support filaments list specs as **N/A** (e.g. Support for
+PLA/PETG) — the model must allow N/A / unknown, not just numbers.
+
+Two new data layers to add (each value still needs a source link per the rule):
+1. **Quantitative properties** — density, Vicat softening, HDT (note the load,
+   e.g. 0.45 MPa), melting temp, melt index, tensile strength, breaking
+   elongation, bending modulus, bending strength, impact strength; some TDSs give
+   XY vs Z variants. Store these as numbers/ranges with units; allow `N/A`.
+2. **Qualitative tags** — UV-resistant, finish (matte/glossy/silk/textured),
+   biodegradable, food-contact, flexible, transparent/translucent, outdoor-rated,
+   low-warp, etc. Tri-state per tag: yes / no / **unknown** (so the UI can show
+   "might meet" when a property was never stated for that filament).
+
+UI: faceted filter + dynamic comparison table. Tri-state matters — absence of a
+claim is "unknown", not "no".
+
+---
+
 ## 0. X2D dual-hotend compatibility (`src/data/x2d.yaml`)
 
 Added the Bambu **X2D** filament-compatibility matrix from the wiki

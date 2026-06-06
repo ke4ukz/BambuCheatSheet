@@ -20,12 +20,12 @@ sources:
         # textured_plate_temp: 60 (set in @base); A1 machine profile uses 65
         bedTemp: 60
         firstLayerBedTemp: 60
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         # cool_plate_temp: 35 (inherited from fdm_filament_pla; no machine profile override)
         bedTemp: 35
         firstLayerBedTemp: 35
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       supertack:
         # supertack_plate_temp_initial_layer: 0 (set in @base) — not supported
         supported: false
@@ -33,4 +33,19 @@ sources:
         # eng_plate_temp: 60 (X1C machine profile); A1 machine profile uses 65
         bedTemp: 60
         firstLayerBedTemp: 60
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — Support for PLA/PETG (Cautions for Use)
+      url: https://us.store.bambulab.com/products/support-for-pla-petg
+    # All AMS Series compatible. Glue: both liquid + stick recommended. Store
+    # also recommends Cool Plate SuperTack, but the BambuStudio profile sets its
+    # initial-layer temp to 0 (supported:false above) — left as profile; flagged.
+    # Specs on the page are mostly N/A (support-interface material).
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
