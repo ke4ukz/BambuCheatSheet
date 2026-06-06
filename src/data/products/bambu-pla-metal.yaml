@@ -33,3 +33,10 @@ sources:
         adhesion: { required: false, types: [] }
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA Metal (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-metal
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: false, types: [liquid-glue, glue-stick] }
