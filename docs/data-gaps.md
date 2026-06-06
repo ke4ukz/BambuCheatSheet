@@ -40,6 +40,10 @@ validator + display, so not pure data-entry). Capture later.
    the reason), but sources differ and they answer different questions — record
    both, watch for divergence, and collapse to one only if the data proves them
    always identical.
+3. **`nozzleSizeMax`** — we have `nozzleSizeMin` but not a max. Some filaments cap
+   the *largest* usable nozzle: PLA Silk+ (`bambu-pla-silk-plus`) marks 0.6/0.8
+   nozzles "Not Recommended" (only 0.2/0.4 recommended) — i.e. max 0.4. Captured
+   in prose only for now; add the field to encode it.
 
 ---
 
