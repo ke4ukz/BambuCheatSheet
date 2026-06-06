@@ -17,7 +17,17 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       engineering:
         bedTemp: { min: 65, max: 75 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — PETG Translucent (Cautions for Use)
+      url: https://us.store.bambulab.com/products/petg-translucent
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }

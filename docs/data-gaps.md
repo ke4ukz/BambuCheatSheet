@@ -45,9 +45,13 @@ side, each cited). The `types` list is preference-ordered (preferred glue first)
   may carry `required: true` but must **not** carry `types`.
 - **Sales page is the only source for glue *type*** (and for AMS / AMS-lite /
   enclosure). The store "Cautions for Use" + comparison + accessory-compatibility
-  widgets name the specific glue(s). Note the page can self-contradict: the
-  comparison table lists "Liquid Glue/Glue Stick" (both OK) while the accessory
-  widget calls Glue Stick "not recommended" — treat as both-valid, liquid-preferred.
+  widgets name the specific glue(s). Reading the accessory widget: each row is
+  Recommended | Not-Recommended, and a lone `/` means that column is empty. The
+  glue row consistently lists BOTH "Bambu Liquid Glue" and "Glue Stick" in the
+  Recommended column with `/` in Not-Recommended — both glues recommended, NOT a
+  contradiction with the comparison table. (An earlier note here claimed the
+  widget marked glue stick "not recommended"; that was a misread of the `/`
+  placeholder.) Record both; list liquid first as the cosmetic preference.
 
 **Attribution bug to clean up:** earlier mining attributed specific glue `types`
 (mostly `[glue-stick]`) to **TDS sources**, which the TDS doesn't actually
