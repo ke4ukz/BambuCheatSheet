@@ -35,3 +35,9 @@ sources:
         adhesion: { required: false, types: [] }
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA-CF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-cf
+    # Store corroborates hardened-required, stainless not recommended, and
+    # 0.2mm not compatible (already set from the profile). No glue row on page.
+    amsCompatible: true
