@@ -17,10 +17,23 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 30, max: 35 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         bedTemp: { min: 30, max: 35 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       engineering:
         bedTemp: { min: 30, max: 35 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — TPU 95A HF (Cautions for Use)
+      url: https://us.store.bambulab.com/products/tpu-95a-hf
+    # "All AMS Series NOT Compatible" — explicit, so amsCompatible:false. 0.2mm
+    # nozzle not recommended (nozzleSizeMin 0.4 already set). Glue: both liquid +
+    # stick recommended (moved here from TDS). Store recommends Smooth PEI +
+    # Textured PEI; Cool Plate SuperTack not recommended.
+    amsCompatible: false
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
