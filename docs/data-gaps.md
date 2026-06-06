@@ -45,7 +45,8 @@ validator + display, so not pure data-entry). Capture later.
    nozzles "Not Recommended" (only 0.2/0.4 recommended) — i.e. max 0.4. Captured
    in prose only for now; add the field to encode it. Known cases so far:
    `bambu-pla-silk-plus` (max 0.4), `bambu-pla-aero` (max 0.4; only 0.4 allowed —
-   also has `nozzleSizeMin: 0.4` set).
+   also has `nozzleSizeMin: 0.4` set), `bambu-asa-aero` (max 0.4; only 0.4
+   allowed — `nozzleSizeMin: 0.4` set).
 4. **AMS vs AMS-lite distinction** — `amsCompatible` is a single bool, but several
    products are "regular AMS yes, AMS lite no": `bambu-abs`, `bambu-asa`,
    `bambu-pla-glow` (glow/abrasive PLAs → AMS-lite feeding failures). Currently set

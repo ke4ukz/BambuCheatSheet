@@ -24,4 +24,19 @@ sources:
         supported: false
       engineering:
         bedTemp: { min: 80, max: 90 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — ASA Aero (Cautions for Use)
+      url: https://us.store.bambulab.com/products/asa-aero
+    # AMS 2 Pro/HT/AMS ok, AMS lite NOT compatible (bool reflects regular AMS).
+    # Only the 0.4mm nozzle is recommended: 0.2 not recommended (min 0.4) AND
+    # 0.6/0.8 not recommended (max 0.4 — tracked in nozzleSizeMax gap). Glue:
+    # both liquid + stick recommended (bed 80-90C is within liquid's range).
+    # Plate discrepancy: store recommends Smooth PEI + Textured PEI, but the TDS
+    # marks Textured PEI not recommended (supported:false above) — left as TDS.
+    # Store also marks Cool Plate SuperTack not recommended (matches).
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
