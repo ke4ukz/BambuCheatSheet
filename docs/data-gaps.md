@@ -17,9 +17,10 @@ validator + display, so not pure data-entry). Capture later.
    overriding that restriction** — read it to confirm whether there's a *hard*
    low/high boundary (and which materials fall where) before modeling it.
    Existing proxies in the data today: `enclosureRequired` (true ≈ high-temp) and
-   `chamberTemp`. (Naming flag: this project's dual-nozzle data is under "X2D" /
-   `x2d.yaml`; user referred to "H2D" — verify whether these are the same printer
-   before citing.)
+   `chamberTemp`. (Note: the **X2D** is this project's dual-hotend printer — real,
+   brand-new; the **H2D** referenced for the override article is a separate, older
+   Bambu product. Two different printers; the restriction concept likely applies
+   to both, but cite each correctly.)
 2. **`spoolType` (standard | high-temp reusable)** — which empty reusable spool
    you need when ordering a *refill*. Citable from the sales page: ABS/ASA say
    "Comes with High Temperature Reusable Spool"; PLA/PETG just say "refill needs
