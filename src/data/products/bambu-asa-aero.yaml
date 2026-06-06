@@ -37,6 +37,7 @@ sources:
     # Store also marks Cool Plate SuperTack not recommended (matches).
     amsCompatible: true
     nozzleSizeMin: 0.4
+    nozzleSizeMax: 0.4
     plates:
       engineering:
         adhesion: { required: true, types: [liquid-glue, glue-stick] }

@@ -74,6 +74,14 @@
   type: nozzleSize
   defaultVisible: true
 
+- key: nozzleSizeMax
+  label: Max Nozzle Size
+  group: Nozzle
+  unit: "mm"
+  scope: filament
+  type: nozzleSize
+  defaultVisible: true
+
 - key: highFlowSupported
   label: High-Flow Compatible
   group: Nozzle

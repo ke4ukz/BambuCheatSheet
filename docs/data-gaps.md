@@ -44,13 +44,9 @@ validator + display, so not pure data-entry). Capture later.
    the reason), but sources differ and they answer different questions — record
    both, watch for divergence, and collapse to one only if the data proves them
    always identical.
-3. **`nozzleSizeMax`** — we have `nozzleSizeMin` but not a max. Some filaments cap
-   the *largest* usable nozzle: PLA Silk+ (`bambu-pla-silk-plus`) marks 0.6/0.8
-   nozzles "Not Recommended" (only 0.2/0.4 recommended) — i.e. max 0.4. Captured
-   in prose only for now; add the field to encode it. Known cases so far:
-   `bambu-pla-silk-plus` (max 0.4), `bambu-pla-aero` (max 0.4; only 0.4 allowed —
-   also has `nozzleSizeMin: 0.4` set), `bambu-asa-aero` (max 0.4; only 0.4
-   allowed — `nozzleSizeMin: 0.4` set).
+3. ~~**`nozzleSizeMax`**~~ — **DONE (2026-06-06).** Added the field (parameters.yaml
+   + validator + a "max nozzle" warning in resolve.js), set on `bambu-pla-silk-plus`,
+   `bambu-pla-aero`, `bambu-asa-aero` (all max 0.4). Watch for more as data lands.
 4. **AMS variant distinction (AMS / AMS 2 Pro / AMS lite / AMS HT)** —
    `amsCompatible` is a single bool, but real products differ per AMS variant:
    - "regular AMS yes, AMS lite no": `bambu-abs`, `bambu-asa`, `bambu-pla-glow`

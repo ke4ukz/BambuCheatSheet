@@ -35,7 +35,9 @@ sources:
   - source:
       label: Bambu Lab Store — PLA Silk+ (Cautions for Use)
       url: https://us.store.bambulab.com/products/pla-silk-upgrade
+    # Store recommends only 0.2/0.4 nozzles; 0.6/0.8 not recommended -> max 0.4.
     amsCompatible: true
+    nozzleSizeMax: 0.4
     plates:
       textured-pei:
         adhesion: { required: false, types: [liquid-glue, glue-stick] }

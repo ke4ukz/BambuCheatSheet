@@ -44,6 +44,7 @@ sources:
     # (supported:false above) — left as-is; flagged for review.
     amsCompatible: true
     nozzleSizeMin: 0.4
+    nozzleSizeMax: 0.4
     plates:
       textured-pei:
         adhesion: { required: false, types: [liquid-glue, glue-stick] }

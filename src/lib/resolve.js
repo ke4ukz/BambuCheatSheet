@@ -54,6 +54,15 @@ export function nozzleWarnings(product, nozzle) {
       warnings.push(`Minimum nozzle size is ${min} mm (selected ${nozzle.size} mm).`)
     }
   }
+  const maxes = (product.sources ?? [])
+    .map((s) => s.nozzleSizeMax)
+    .filter((v) => typeof v === 'number')
+  if (maxes.length) {
+    const max = Math.min(...maxes)
+    if (nozzle.size > max) {
+      warnings.push(`Maximum nozzle size is ${max} mm (selected ${nozzle.size} mm).`)
+    }
+  }
   const noHighFlow = (product.sources ?? []).some((s) => s.highFlowSupported === false)
   if (noHighFlow && nozzle.highFlow) {
     warnings.push('This filament is not compatible with high-flow nozzles.')

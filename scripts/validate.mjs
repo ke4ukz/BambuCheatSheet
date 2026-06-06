@@ -12,7 +12,7 @@ const PLATES = new Set(['textured-pei', 'cool-plate', 'supertack', 'engineering'
 const ADHESION = new Set(['glue-stick', 'liquid-glue', 'hairspray', 'blue-tape', 'kapton-tape'])
 const FILAMENT_FIELDS = new Set([
   'nozzleTemp', 'firstLayerNozzleTemp', 'chamberTemp', 'hardenedNozzleRequired',
-  'abrasive', 'nozzleSizeMin', 'highFlowSupported', 'maxVolumetricSpeed', 'dryBeforeUse',
+  'abrasive', 'nozzleSizeMin', 'nozzleSizeMax', 'highFlowSupported', 'maxVolumetricSpeed', 'dryBeforeUse',
   'amsCompatible', 'enclosureRequired',
 ])
 const PLATE_FIELDS = new Set(['bedTemp', 'firstLayerBedTemp', 'adhesion', 'supported'])
