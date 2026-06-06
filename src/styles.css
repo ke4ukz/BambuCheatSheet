@@ -532,3 +532,71 @@ footer a:hover {
   margin: 0.5rem 0 0;
   font-size: 0.78rem;
 }
+
+/* Glue reference page */
+.glue-entry {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border);
+}
+.glue-entry h3,
+.glue-guidance h3 {
+  font-size: 1.05rem;
+  margin: 0 0 0.5rem;
+}
+.glue-mfr {
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: normal;
+  margin-left: 0.4rem;
+}
+.glue-entry p {
+  margin: 0.35rem 0;
+  font-size: 0.9rem;
+}
+.glue-temps {
+  border-collapse: collapse;
+  margin: 0.5rem 0;
+  font-size: 0.85rem;
+}
+.glue-temps th,
+.glue-temps td {
+  text-align: left;
+  padding: 0.2rem 1.5rem 0.2rem 0;
+  border-bottom: 1px solid var(--border);
+}
+.glue-temps thead th {
+  color: var(--muted);
+  font-weight: 600;
+}
+.glue-features {
+  margin: 0.5rem 0;
+  padding-left: 1.1rem;
+  font-size: 0.85rem;
+}
+.glue-features li {
+  padding: 0.1rem 0;
+}
+.glue-inference {
+  font-size: 0.82rem;
+}
+.glue-srcs {
+  font-size: 0.8rem;
+  margin-top: 0.5rem;
+}
+.glue-srcs a {
+  color: var(--muted);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.glue-srcs a:hover {
+  color: var(--accent);
+}
+.glue-guidance {
+  margin-top: 1.5rem;
+}
+.glue-guidance .value {
+  text-align: left;
+  flex: 1 1 60%;
+  max-width: 65%;
+}

@@ -10,7 +10,8 @@ import {
   x2dForProduct, x2dColumn, x2dRating, x2dSource, x2dProductIds, x2dColumns, x2dLegend, X2D_TABLES,
 } from './lib/x2d'
 
-const { plates, materials, parameters, products, nozzleSizes, nozzleTypes } = useCatalog()
+const { plates, materials, parameters, products, nozzleSizes, nozzleTypes, glues, plateGlueGuidance } = useCatalog()
+const plateLabel = (id) => plates.find((p) => p.id === id)?.label ?? id
 const { isVisible, toggle } = useVisibility()
 const { isFavorite, toggle: toggleFavorite } = useFavorites()
 
@@ -192,9 +193,9 @@ function formatValue(param, value) {
     <header>
       <h1>Bambu Cheat Sheet</h1>
       <div class="nav">
-        <button class="ghost" @click="view = view === 'sources' ? 'lookup' : 'sources'">
-          {{ view === 'sources' ? '← Back' : 'Sources' }}
-        </button>
+        <button v-if="view !== 'lookup'" class="ghost" @click="view = 'lookup'">← Back</button>
+        <button v-if="view === 'lookup'" class="ghost" @click="view = 'glue'">Glue</button>
+        <button v-if="view === 'lookup'" class="ghost" @click="view = 'sources'">Sources</button>
         <div class="param-wrap">
           <button
             v-if="view === 'lookup'"
@@ -426,7 +427,7 @@ function formatValue(param, value) {
     </template>
     </template>
 
-    <section v-else class="card sources-page">
+    <section v-else-if="view === 'sources'" class="card sources-page">
       <h2>Data sources</h2>
       <p class="sources-intro">
         Every value in the app links to its own source. This is the consolidated,
@@ -442,6 +443,52 @@ function formatValue(param, value) {
             <a :href="l.url" target="_blank" rel="noopener">{{ l.label }}</a>
           </li>
         </ul>
+      </div>
+    </section>
+
+    <section v-else-if="view === 'glue'" class="card glue-page">
+      <h2>Glue reference</h2>
+      <p class="sources-intro">
+        Which Bambu adhesive works with which material and build plate. Per-product
+        adhesion data in the lookup takes precedence; this is the general guidance.
+      </p>
+
+      <div v-for="g in glues" :key="g.id" class="glue-entry">
+        <h3>{{ g.label }} <span class="glue-mfr">{{ g.manufacturer }}</span></h3>
+        <p v-if="g.plateCompatibility"><strong>Plates:</strong> {{ g.plateCompatibility }}</p>
+        <p>
+          <strong>Materials:</strong> {{ g.materials.join(', ') }}
+          <span v-if="g.materialsNote" class="muted">— {{ g.materialsNote }}</span>
+        </p>
+        <table v-if="g.bedTempByMaterial" class="glue-temps">
+          <thead><tr><th>Material</th><th>Bed temp (with glue)</th></tr></thead>
+          <tbody>
+            <tr v-for="(t, m) in g.bedTempByMaterial" :key="m">
+              <td>{{ m }}</td><td>{{ fmtNumber(t, ' °C') }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <p v-if="g.cureTime"><strong>Cure time:</strong> {{ g.cureTime }}</p>
+        <ul v-if="g.features" class="glue-features">
+          <li v-for="f in g.features" :key="f">{{ f }}</li>
+        </ul>
+        <p v-if="g.inference" class="glue-inference muted"><em>Inference (not a Bambu claim): {{ g.inference }}</em></p>
+        <p class="glue-srcs">
+          <template v-for="(s, i) in g.sources" :key="i"
+            ><a :href="s.url" target="_blank" rel="noopener">{{ s.label }}</a
+            ><span v-if="i < g.sources.length - 1"> · </span></template>
+        </p>
+      </div>
+
+      <div v-if="plateGlueGuidance" class="glue-guidance">
+        <h3>Glue by build plate</h3>
+        <div v-for="(note, pid) in plateGlueGuidance.notes" :key="pid" class="row">
+          <span class="label">{{ plateLabel(pid) }}</span>
+          <span class="value">{{ note }}</span>
+        </div>
+        <p class="glue-srcs">
+          <a :href="plateGlueGuidance.source.url" target="_blank" rel="noopener">{{ plateGlueGuidance.source.label }}</a>
+        </p>
       </div>
     </section>
 
