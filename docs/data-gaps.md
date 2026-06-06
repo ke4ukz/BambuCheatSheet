@@ -33,6 +33,35 @@ app as an "X2D Compatibility" card that reads the current nozzle selection.
 
 ---
 
+## Glue: source authority + attribution cleanup (in progress)
+
+**Decided model:** glue is `adhesion: { required: <bool>, types: [<preference list>] }`,
+recorded **per source verbatim** (resolve.js shows each source's claim side by
+side, each cited). The `types` list is preference-ordered (preferred glue first).
+
+**Source authority for glue:**
+- **TDS does NOT name a glue type.** The Bambu TDS template only says "Bed
+  Surface Preparation: **Glue**" — generic, no stick-vs-liquid. So a TDS source
+  may carry `required: true` but must **not** carry `types`.
+- **Sales page is the only source for glue *type*** (and for AMS / AMS-lite /
+  enclosure). The store "Cautions for Use" + comparison + accessory-compatibility
+  widgets name the specific glue(s). Note the page can self-contradict: the
+  comparison table lists "Liquid Glue/Glue Stick" (both OK) while the accessory
+  widget calls Glue Stick "not recommended" — treat as both-valid, liquid-preferred.
+
+**Attribution bug to clean up:** earlier mining attributed specific glue `types`
+(mostly `[glue-stick]`) to **TDS sources**, which the TDS doesn't actually
+support. Audit (2026-06-06): **70 glue-type entries across 40 files** are
+TDS-attributed. Fixed so far: `bambu-abs`, `bambu-asa`.
+
+Cleanup approach — **incremental, not mass-strip** (mass-strip would delete glue
+info we can't re-source without the sales page): when we open a product's sales
+page, move the real types to the store source and reduce the TDS source to
+`required: true`. Caveat: **Polymaker TDS format is NOT yet verified** — ~18 of
+the 40 files are Polymaker and may legitimately name a type; check before editing.
+
+---
+
 ## Registered source — general material table (NOT yet mined)
 
 Wiki page **"Filament guide – Printer, Nozzle, AMS, Build Plate, Glue

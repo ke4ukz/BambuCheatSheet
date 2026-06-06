@@ -17,11 +17,20 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         supported: false
       supertack:
         supported: false
       engineering:
         bedTemp: { min: 80, max: 100 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — ASA (Cautions for Use)
+      url: https://us.store.bambulab.com/products/asa-filament
+    amsCompatible: true
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
