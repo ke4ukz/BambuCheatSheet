@@ -19,11 +19,17 @@ sources so you don't have to dig through several product pages every time.
 
 ## License
 
-Licensed under the GNU General Public License v3.0 — see [LICENSE](LICENSE).
+The **code and design** of this project are © 2026 Jonathan Dean, licensed under
+the GNU General Public License v3.0 — see [LICENSE](LICENSE).
 
-© 2026 Jonathan Dean. This project is not affiliated with, endorsed by, or
-sponsored by Bambu Lab or any filament manufacturer. "Bambu Lab," "Polymaker,"
-and all other product and brand names are trademarks of their respective owners.
+The **filament data** this app presents is factual information compiled from each
+manufacturer's published sources (every value links back to its source). Facts
+are not copyrightable; the data is not claimed as original or proprietary and
+remains attributable to the respective manufacturers.
+
+This project is not affiliated with, endorsed by, or sponsored by Bambu Lab or
+any filament manufacturer. "Bambu Lab," "Polymaker," and all other product and
+brand names are trademarks of their respective owners.
 
 ## Contributing
 

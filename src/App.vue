@@ -315,10 +315,10 @@ function formatValue(param, value) {
 
     <div class="param-wrap param-bar">
       <button class="ghost" @click="showSettings = !showSettings; endTour()">
-        {{ showSettings ? 'Done' : 'Parameters' }}
+        {{ showSettings ? 'Done' : 'Filter parameters' }}
       </button>
       <div v-if="tourStep === 1" class="tour-pop tour-pop-below" role="dialog">
-        <p>Every parameter is shown by default. Tap <strong>Parameters</strong> to hide any you don't need.</p>
+        <p>Every parameter is shown by default. Tap <strong>Filter parameters</strong> to hide any you don't need from the output.</p>
         <div class="tour-foot">
           <span class="tour-count">1 / {{ TOUR_STEPS }}</span>
           <span class="tour-actions">
@@ -330,7 +330,7 @@ function formatValue(param, value) {
     </div>
 
     <section v-if="showSettings" class="settings card">
-      <h2>Show parameters</h2>
+      <h2>Show / hide parameters</h2>
       <label v-for="p in parameters" :key="p.key" class="check">
         <input type="checkbox" :checked="isVisible(p.key)" @change="toggle(p.key)" />
         <span>{{ p.label }} <em>({{ p.group }})</em></span>
