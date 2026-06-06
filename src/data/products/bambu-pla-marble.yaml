@@ -33,3 +33,11 @@ sources:
         adhesion: { required: false, types: [] }
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA Marble (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-marble
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      textured-pei:
+        adhesion: { required: false, types: [liquid-glue, glue-stick] }
