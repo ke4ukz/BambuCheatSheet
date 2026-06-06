@@ -17,10 +17,25 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 35, max: 45 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         bedTemp: { min: 35, max: 45 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
       engineering:
         bedTemp: { min: 35, max: 45 }
-        adhesion: { required: true, types: [glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — PVA (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pva
+    # All AMS Series compatible (incl. AMS lite "in a dry state"). 0.2mm nozzle
+    # not compatible (nozzleSizeMin 0.4). Glue: both liquid + stick recommended
+    # (moved here from TDS, which names no glue type). Specs mostly N/A.
+    amsCompatible: true
+    nozzleSizeMin: 0.4
+    plates:
+      textured-pei:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      cool-plate:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+      engineering:
+        adhesion: { required: true, types: [liquid-glue, glue-stick] }
