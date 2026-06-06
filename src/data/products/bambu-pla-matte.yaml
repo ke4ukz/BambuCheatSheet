@@ -33,3 +33,7 @@ sources:
         adhesion: { required: false, types: [] }
       engineering:
         supported: false
+  - source:
+      label: Bambu Lab Store — PLA Matte (Cautions for Use)
+      url: https://us.store.bambulab.com/products/pla-matte
+    amsCompatible: true
