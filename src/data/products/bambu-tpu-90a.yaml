@@ -17,7 +17,23 @@ sources:
     plates:
       textured-pei:
         bedTemp: { min: 30, max: 35 }
-        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+        adhesion: { required: true }
       cool-plate:
         bedTemp: { min: 30, max: 35 }
-        adhesion: { required: true, types: [liquid-glue, glue-stick] }
+        adhesion: { required: true }
+  - source:
+      label: Bambu Lab Store — TPU 85A/TPU 90A (Cautions for Use)
+      url: https://us.store.bambulab.com/products/tpu-85a-tpu-90a
+    # TPU 90A: compatible ONLY with AMS HT; AMS / AMS 2 Pro / AMS lite all NOT
+    # compatible. Single bool can't express "AMS HT only", so amsCompatible:false
+    # (the common AMS won't take it); AMS-HT exception noted. High Flow nozzle not
+    # supported; 0.2mm not supported (nozzleSizeMin 0.4 already set). Store says
+    # "No Glue Required" (required:false), conflicting with the TDS source above —
+    # both recorded per the per-source model. Supports multi-material w/ PLA/PETG.
+    amsCompatible: false
+    highFlowSupported: false
+    plates:
+      textured-pei:
+        adhesion: { required: false }
+      cool-plate:
+        adhesion: { required: false }

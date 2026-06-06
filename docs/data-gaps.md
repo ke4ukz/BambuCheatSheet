@@ -50,12 +50,15 @@ validator + display, so not pure data-entry). Capture later.
    `bambu-pla-silk-plus` (max 0.4), `bambu-pla-aero` (max 0.4; only 0.4 allowed —
    also has `nozzleSizeMin: 0.4` set), `bambu-asa-aero` (max 0.4; only 0.4
    allowed — `nozzleSizeMin: 0.4` set).
-4. **AMS vs AMS-lite distinction** — `amsCompatible` is a single bool, but several
-   products are "regular AMS yes, AMS lite no": `bambu-abs`, `bambu-asa`,
-   `bambu-pla-glow` (glow/abrasive PLAs → AMS-lite feeding failures). Currently set
-   `amsCompatible: true` (regular AMS) and note the AMS-lite exclusion in a YAML
-   comment. Consider splitting into `ams`/`amsLite` (or an enum) so the AMS-lite
-   exclusion is queryable.
+4. **AMS variant distinction (AMS / AMS 2 Pro / AMS lite / AMS HT)** —
+   `amsCompatible` is a single bool, but real products differ per AMS variant:
+   - "regular AMS yes, AMS lite no": `bambu-abs`, `bambu-asa`, `bambu-pla-glow`
+     (glow/abrasive → AMS-lite feeding failures). Set `amsCompatible: true`.
+   - **"AMS HT only"**: `bambu-tpu-90a` — compatible ONLY with AMS HT; AMS / AMS
+     2 Pro / AMS lite all NOT compatible. Set `amsCompatible: false` (the common
+     AMS won't take it), AMS-HT exception in a YAML comment.
+   The single bool loses all this. Consider per-variant fields (`ams`, `amsLite`,
+   `ams2Pro`, `amsHT`) or an enum so each is queryable.
 
 ---
 
