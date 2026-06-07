@@ -142,5 +142,28 @@ try {
   err('glues.yaml', `load/validate error: ${e.message}`)
 }
 
+// --- Material-type guides (single wiki source) ---------------------------
+try {
+  const mg = load(readFileSync(join(root, 'src/data/material-guide.yaml'), 'utf8'))
+  const f = 'material-guide.yaml'
+  if (!mg?.source?.url) err(f, 'source missing url (every value needs a source link)')
+  const gids = new Set()
+  for (const g of mg?.guides ?? []) {
+    const who = `${f} [${g.id ?? '?'}]`
+    if (!g.id) err(f, 'guide missing id')
+    else if (gids.has(g.id)) err(f, `duplicate guide id "${g.id}"`)
+    else gids.add(g.id)
+    if (!g.title) warn(who, 'missing title')
+    if (!Array.isArray(g.columns) || !g.columns.length) { err(who, 'no columns'); continue }
+    for (const c of g.columns) if (!c.key || !c.label) warn(who, 'column missing key/label')
+    const keys = g.columns.map((c) => c.key)
+    for (const [i, row] of (g.rows ?? []).entries()) {
+      for (const k of keys) if (!(k in row)) warn(who, `row ${i} missing column "${k}"`)
+    }
+  }
+} catch (e) {
+  err('material-guide.yaml', `load/validate error: ${e.message}`)
+}
+
 console.log(`\n${ids.size} products — ${errors} errors, ${warns} warnings`)
 process.exit(errors ? 1 : 0)

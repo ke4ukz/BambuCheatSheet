@@ -1,0 +1,145 @@
+# Material-TYPE-generic quick-reference guides, transcribed from the Bambu wiki
+# "Filament Guide" material table (one source for the whole file). Keyed by
+# material type, NOT per product — this is Bambu's general guidance and belongs
+# in the Guides hub, distinct from the per-product lookup. Where a specific
+# product's page gives an exact value, the per-product lookup is more precise.
+#
+# Each guide: id, title, intro, columns [{key,label}], rows [{<key>: value}].
+# The app renders them with one generic table component.
+
+source:
+  label: Bambu Lab Wiki — Filament Guide (material table)
+  url: https://wiki.bambulab.com/en/general/filament-guide-material-table
+lastChecked: "2026-06-07"
+
+guides:
+  - id: drying
+    title: Drying
+    intro: >-
+      How to dry each material, by drying method. Drying is the most common cause
+      of poor prints. "Required" means dry before every use; AMS 2 Pro can dry
+      some materials in-unit, AMS HT goes hotter.
+    columns:
+      - { key: material, label: Material }
+      - { key: requirement, label: Dry before use? }
+      - { key: oven, label: Blast drying oven }
+      - { key: ams2pro, label: AMS 2 Pro }
+      - { key: amsht, label: AMS HT }
+      - { key: desiccant, label: Desiccant while printing }
+    rows:
+      - { material: "PLA", requirement: "Recommended", oven: "55 °C / 8 h", ams2pro: "45 °C / 12 h", amsht: "45 °C / 12 h", desiccant: "Optional" }
+      - { material: "Wood / Rock / Metal-filled PLA", requirement: "Recommended", oven: "55 °C / 8 h", ams2pro: "45 °C / 12 h", amsht: "45 °C / 12 h", desiccant: "Optional" }
+      - { material: "PLA-CF", requirement: "Recommended", oven: "55 °C / 8 h", ams2pro: "45 °C / 12 h", amsht: "45 °C / 12 h", desiccant: "Optional" }
+      - { material: "PVA", requirement: "Required", oven: "55 °C / 8 h", ams2pro: "Not recommended", amsht: "85 °C / 18 h", desiccant: "Required" }
+      - { material: "PETG", requirement: "Recommended", oven: "70 °C / 8 h", ams2pro: "65 °C / 12 h", amsht: "65 °C / 12 h", desiccant: "Optional" }
+      - { material: "PETG HF / PETG Translucent", requirement: "Required", oven: "65 °C / 8 h", ams2pro: "65 °C / 12 h", amsht: "65 °C / 12 h", desiccant: "Required" }
+      - { material: "PETG-CF", requirement: "Recommended", oven: "70 °C / 8 h", ams2pro: "65 °C / 12 h", amsht: "65 °C / 12 h", desiccant: "Optional" }
+      - { material: "ABS", requirement: "Recommended", oven: "80 °C / 8 h", ams2pro: "Not recommended", amsht: "80 °C / 8 h", desiccant: "Optional" }
+      - { material: "ASA", requirement: "Recommended", oven: "80 °C / 8 h", ams2pro: "Not recommended", amsht: "80 °C / 8 h", desiccant: "Optional" }
+      - { material: "PC", requirement: "Required", oven: "80 °C / 8 h", ams2pro: "Not recommended", amsht: "80 °C / 8 h", desiccant: "Required" }
+      - { material: "PA", requirement: "Required", oven: "80 °C / 8-12 h", ams2pro: "Not recommended", amsht: "85 °C / 12 h", desiccant: "Required" }
+      - { material: "PA-CF/GF, PAHT-CF/GF", requirement: "Required", oven: "80 °C / 8-12 h", ams2pro: "Not recommended", amsht: "85 °C / 12 h", desiccant: "Required" }
+      - { material: "PET-CF/GF", requirement: "Required", oven: "80 °C / 8-12 h", ams2pro: "Not recommended", amsht: "80 °C / 12 h", desiccant: "Required" }
+      - { material: "TPU", requirement: "Required", oven: "70 °C / 8 h", ams2pro: "Not recommended", amsht: "75 °C / 12 h", desiccant: "Required" }
+
+  - id: ams
+    title: AMS & printer compatibility
+    intro: >-
+      Which materials run on open-frame vs enclosed printers, and in the AMS.
+      "AMS / AMS lite" notes call out where the regular AMS works but AMS lite
+      does not (usually high-temp or abrasive materials).
+    columns:
+      - { key: material, label: Material }
+      - { key: openFrame, label: "Open-frame (P1P, A1, A1 mini…)" }
+      - { key: enclosed, label: "Enclosed (X1, X1C, X1E, P1S…)" }
+      - { key: ams, label: AMS / AMS lite }
+    rows:
+      - { material: "PLA", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "Wood / Rock / Metal-filled PLA", openFrame: "Available", enclosed: "Available", ams: "Available (except filament too brittle, rough, or soft)" }
+      - { material: "PLA-CF/GF", openFrame: "Available", enclosed: "Available", ams: "Bambu PLA-CF: Available" }
+      - { material: "PLA (Glow-in-the-dark)", openFrame: "Available", enclosed: "Available", ams: "AMS: Available; AMS lite: Not Recommended" }
+      - { material: "PVA, BVOH (dry)", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "Support W, Support for PLA, Support for PLA/PETG", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "PETG", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "PETG HF", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "PETG-CF", openFrame: "Available", enclosed: "Recommended", ams: "AMS: Available; AMS lite: Not Recommended" }
+      - { material: "PETG Translucent", openFrame: "Available", enclosed: "Available", ams: "Available" }
+      - { material: "TPU", openFrame: "Available", enclosed: "Available", ams: "Unavailable" }
+      - { material: "ABS", openFrame: "Not Recommended", enclosed: "Recommended", ams: "AMS: Available; AMS lite: Not Recommended" }
+      - { material: "ABS-GF", openFrame: "Not Recommended", enclosed: "Recommended", ams: "AMS: Available; AMS lite: Not Recommended" }
+      - { material: "ASA", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Available" }
+      - { material: "PC", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Available" }
+      - { material: "PA-CF/GF, PA6-CF/GF, PAHT-CF/GF", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Bambu PA-CF, PAHT-CF: Available" }
+      - { material: "PET-CF/GF", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Unavailable" }
+      - { material: "Support for PA/PET", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Available" }
+      - { material: "PPA-CF/GF", openFrame: "Not Recommended", enclosed: "Recommended", ams: "Unavailable" }
+      - { material: "PPS-CF/GF", openFrame: "Not Recommended", enclosed: "X1E: Available", ams: "Unavailable" }
+
+  - id: nozzle
+    title: Nozzle compatibility & temperature
+    intro: >-
+      Nozzle-size availability, whether a hardened-steel nozzle is required, and
+      the nozzle temperature range (±10 °C) by material type. Scroll sideways to
+      see all nozzle sizes.
+    columns:
+      - { key: material, label: Material }
+      - { key: n02, label: 0.2 mm }
+      - { key: n04, label: 0.4 mm }
+      - { key: n06, label: 0.6 mm }
+      - { key: n08, label: 0.8 mm }
+      - { key: hf04, label: HF 0.4 }
+      - { key: hf06, label: HF 0.6 }
+      - { key: hf08, label: HF 0.8 }
+      - { key: hardened, label: Hardened steel? }
+      - { key: temp, label: "Nozzle temp °C" }
+    rows:
+      - { material: "PLA", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "190 - 240" }
+      - { material: "Wood / Rock / Metal-filled PLA", n02: "Unavailable", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Metal-filled: required", temp: "190 - 240" }
+      - { material: "PLA-CF/GF", n02: "Unavailable", n04: "Bambu PLA-CF: Recommended", n06: "Available", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "210 - 240" }
+      - { material: "PLA (Glow-in-the-dark)", n02: "Unavailable", n04: "Bambu PLA Glow: Recommended", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Required", temp: "210 - 240" }
+      - { material: "PVA, BVOH (dry)", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "190 - 240" }
+      - { material: "Support W, Support for PLA, Support for PLA/PETG", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "190 - 240" }
+      - { material: "PETG", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "240 - 270" }
+      - { material: "PETG HF", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "230 - 260" }
+      - { material: "PETG-CF", n02: "Unavailable", n04: "Bambu PETG-CF: Recommended", n06: "Available", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "240 - 270" }
+      - { material: "PETG Translucent", n02: "Unavailable", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "230 - 260" }
+      - { material: "TPU", n02: "Not Recommended", n04: "Available", n06: "Available", n08: "Available", hf04: "TPU for AMS / 95A HF: Available; 85A: Unavailable; 90A: Not Rec.", hf06: "TPU for AMS / 95A HF: Available; 85A, 90A: Not Rec.", hf08: "TPU for AMS / 95A HF: Available; 85A, 90A: Not Rec.", hardened: "Not required", temp: "200 - 250" }
+      - { material: "ABS", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "240 - 280" }
+      - { material: "ABS-GF", n02: "Unavailable", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Required", temp: "240 - 280" }
+      - { material: "ASA", n02: "Available", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "240 - 280" }
+      - { material: "PC", n02: "Not Recommended", n04: "Available", n06: "Available", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Not required", temp: "260 - 290" }
+      - { material: "PA-CF/GF, PA6-CF/GF, PAHT-CF/GF", n02: "Unavailable", n04: "Available", n06: "Recommended", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "260 - 300" }
+      - { material: "PET-CF/GF", n02: "Unavailable", n04: "Available", n06: "Recommended", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "260 - 300" }
+      - { material: "Support for PA/PET", n02: "Unavailable", n04: "Available", n06: "Recommended", n08: "Available", hf04: "Available", hf06: "Available", hf08: "Available", hardened: "Required", temp: "260 - 300" }
+      - { material: "PPA-CF/GF", n02: "Unavailable", n04: "Available", n06: "Recommended", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "285 - 320" }
+      - { material: "PPS-CF/GF", n02: "Unavailable", n04: "Available", n06: "Recommended", n08: "Available", hf04: "Not Recommended", hf06: "Available", hf08: "Available", hardened: "Required", temp: "310 - 340" }
+
+  - id: plate
+    title: Build plate & bed temperature
+    intro: >-
+      Recommended bed temperature per build plate and material type, and whether
+      to remove the upper glass cover. "Require Glue" notes where the wiki calls
+      for glue on that plate.
+    columns:
+      - { key: material, label: Material }
+      - { key: coolPlate, label: Cool Plate / PLA Plate }
+      - { key: engineering, label: Engineering Plate }
+      - { key: smoothPei, label: Smooth PEI / High-Temp }
+      - { key: texturedPei, label: Textured PEI }
+      - { key: cover, label: Remove glass cover? }
+    rows:
+      - { material: "PLA", coolPlate: "35 - 45 °C", engineering: "45 - 65 °C (glue)", smoothPei: "45 - 65 °C", texturedPei: "45 - 65 °C", cover: "If bed > 45 °C, recommended" }
+      - { material: "Wood / Rock / Metal-filled PLA", coolPlate: "35 - 45 °C", engineering: "45 - 65 °C (glue)", smoothPei: "45 - 65 °C", texturedPei: "45 - 65 °C", cover: "If bed > 45 °C, recommended" }
+      - { material: "PLA-CF", coolPlate: "45 - 65 °C", engineering: "45 - 65 °C (glue)", smoothPei: "45 - 65 °C", texturedPei: "45 - 65 °C", cover: "If bed > 45 °C, recommended" }
+      - { material: "PVA", coolPlate: "35 - 45 °C", engineering: "45 - 65 °C (glue)", smoothPei: "45 - 65 °C", texturedPei: "45 - 65 °C", cover: "If bed > 45 °C, recommended" }
+      - { material: "TPU", coolPlate: "Not recommended", engineering: "30 - 35 °C", smoothPei: "35 - 45 °C", texturedPei: "35 - 45 °C", cover: "If bed > 45 °C, recommended" }
+      - { material: "PETG / PETG HF / PETG Translucent", coolPlate: "Not recommended", engineering: "60 - 80 °C", smoothPei: "60 - 80 °C", texturedPei: "60 - 80 °C", cover: "If bed > 70 °C, recommended" }
+      - { material: "PETG-CF", coolPlate: "Not recommended", engineering: "60 - 80 °C", smoothPei: "60 - 80 °C", texturedPei: "60 - 80 °C", cover: "If bed > 70 °C, recommended" }
+      - { material: "ABS", coolPlate: "Not recommended", engineering: "90 - 100 °C", smoothPei: "90 - 100 °C", texturedPei: "90 - 100 °C", cover: "No" }
+      - { material: "ASA", coolPlate: "Not recommended", engineering: "90 - 100 °C", smoothPei: "90 - 100 °C", texturedPei: "90 - 100 °C", cover: "No" }
+      - { material: "PC", coolPlate: "Not recommended", engineering: "100 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }
+      - { material: "PA", coolPlate: "Not recommended", engineering: "100 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }
+      - { material: "PA-CF/GF, PA6-CF/GF, PAHT-CF/GF", coolPlate: "Not recommended", engineering: "100 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }
+      - { material: "PET-CF/GF", coolPlate: "Not recommended", engineering: "80 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }
+      - { material: "PPA-CF/GF", coolPlate: "Not recommended", engineering: "100 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }
+      - { material: "PPS / PPS-CF/GF", coolPlate: "Not recommended", engineering: "100 - 120 °C", smoothPei: "100 - 120 °C", texturedPei: "100 - 120 °C", cover: "No" }

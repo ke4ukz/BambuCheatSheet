@@ -571,6 +571,38 @@ footer a:hover {
   font-size: 0.82rem;
 }
 
+/* Material-guide tables (drying / AMS / nozzle / plate) */
+.guide-table-wrap {
+  overflow-x: auto;
+  margin: 0.5rem 0 0.75rem;
+}
+.guide-table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+  min-width: 100%;
+}
+.guide-table th,
+.guide-table td {
+  text-align: left;
+  padding: 0.4rem 0.7rem;
+  border-bottom: 1px solid var(--border);
+  vertical-align: top;
+  white-space: nowrap;
+}
+.guide-table thead th {
+  color: var(--muted);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  background: var(--card);
+}
+.guide-table tbody td:first-child,
+.guide-table tbody th:first-child {
+  font-weight: 600;
+  white-space: normal;
+  min-width: 9rem;
+}
+
 /* Glue reference page */
 .glue-entry {
   margin-bottom: 1.5rem;

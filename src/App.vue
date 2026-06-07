@@ -10,8 +10,15 @@ import {
   x2dForProduct, x2dColumn, x2dRating, x2dSource, x2dProductIds, x2dColumns, x2dLegend, X2D_TABLES,
 } from './lib/x2d'
 
-const { plates, materials, parameters, products, nozzleSizes, nozzleTypes, glues, plateGlueGuidance } = useCatalog()
+const { plates, materials, parameters, products, nozzleSizes, nozzleTypes, glues, plateGlueGuidance, materialGuides, materialGuideSource } = useCatalog()
 const plateLabel = (id) => plates.find((p) => p.id === id)?.label ?? id
+
+// Active material-type guide (drying / ams / nozzle / plate) when view === 'guide'.
+const activeGuide = ref(null)
+function openGuide(g) {
+  activeGuide.value = g
+  view.value = 'guide'
+}
 const { isVisible, toggle } = useVisibility()
 const { isFavorite, toggle: toggleFavorite } = useFavorites()
 
@@ -35,7 +42,7 @@ const showX2dFull = ref(false)
 const view = ref('lookup')
 // Back navigation: glue is a sub-page of the guides hub; everything else
 // returns to the main lookup.
-const BACK_TARGET = { glue: 'guides', guides: 'lookup', sources: 'lookup' }
+const BACK_TARGET = { glue: 'guides', guide: 'guides', guides: 'lookup', sources: 'lookup' }
 const goBack = () => (view.value = BACK_TARGET[view.value] ?? 'lookup')
 const sourceGroups = collectSources(products, [
   { source: x2dSource, productIds: x2dProductIds },
@@ -459,7 +466,37 @@ function formatValue(param, value) {
             <span class="guide-desc">Which adhesive for each material &amp; build plate</span>
           </button>
         </li>
+        <li v-for="g in materialGuides" :key="g.id">
+          <button class="guide-link" @click="openGuide(g)">
+            <span class="guide-title">{{ g.title }}</span>
+            <span class="guide-desc">{{ g.intro }}</span>
+          </button>
+        </li>
       </ul>
+    </section>
+
+    <section v-else-if="view === 'guide' && activeGuide" class="card guide-table-page">
+      <h2>
+        {{ activeGuide.title }}
+        <a v-if="materialGuideSource" class="x2d-src" :href="materialGuideSource.url" target="_blank" rel="noopener">{{ materialGuideSource.label }}</a>
+      </h2>
+      <p class="sources-intro">{{ activeGuide.intro }}</p>
+      <div class="guide-table-wrap">
+        <table class="guide-table">
+          <thead>
+            <tr><th v-for="c in activeGuide.columns" :key="c.key">{{ c.label }}</th></tr>
+          </thead>
+          <tbody>
+            <tr v-for="(row, i) in activeGuide.rows" :key="i">
+              <td v-for="c in activeGuide.columns" :key="c.key">{{ row[c.key] }}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend muted">
+        General guidance by material <em>type</em> — for a specific filament, the
+        per-product lookup may carry a more exact, separately-cited value.
+      </p>
     </section>
 
     <section v-else-if="view === 'glue'" class="card glue-page">

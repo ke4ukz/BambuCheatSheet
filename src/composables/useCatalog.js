@@ -3,6 +3,7 @@ import materialsData from '../data/materials.yaml'
 import parametersData from '../data/parameters.yaml'
 import nozzlesData from '../data/nozzles.yaml'
 import gluesData from '../data/glues.yaml'
+import materialGuideData from '../data/material-guide.yaml'
 
 // Bundle every product file at build time.
 const productModules = import.meta.glob('../data/products/*.yaml', { eager: true })
@@ -22,5 +23,7 @@ export function useCatalog() {
     nozzleTypes: nozzlesData.types,
     glues: gluesData.glues ?? [],
     plateGlueGuidance: gluesData.plateGlueGuidance ?? null,
+    materialGuides: materialGuideData.guides ?? [],
+    materialGuideSource: materialGuideData.source ?? null,
   }
 }
