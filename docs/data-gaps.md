@@ -6,6 +6,53 @@ passes (every value is backed by a source link).
 
 ---
 
+## Follow-ups from the guide-mining session (2026-06-07) — DISCUSS
+
+Mined the wiki general material table into `src/data/material-guide.yaml` and built
+four Guides-hub guides (Drying, AMS, Nozzle, Build plate). Things that came up:
+
+1. **HIGH — glues.yaml PC/PA "inference" is now an explicit Bambu fact.** The wiki
+   table states, verbatim: PC → Liquid Glue **"Not Recommended"** (glue stick
+   100-120 °C); PA → Liquid Glue **"Not Recommended"** (glue stick 90-110 °C). Our
+   `glues.yaml` still frames liquid-glue's PC/PA omission as an *inference, "not a
+   Bambu claim."* It now IS a Bambu claim. **Action:** upgrade that note from
+   inference → cited fact, adding the wiki material-table URL as the source. (Left
+   for you to OK since we worded the inference deliberately.)
+
+2. **MEDIUM — the off-store products can now get a *type-level* AMS answer.** The
+   wiki AMS table is keyed by material type, so the products with no store page
+   (pla-lite/-dynamic/-silk/-tough, tpu-95a, support-w) can be filled as *general
+   by-type guidance*: PLA → AMS Available (so the 4 off-store PLAs = true);
+   TPU (generic) → AMS **Unavailable** (so bare tpu-95a = false). Lower confidence
+   than a product page, label it as general-type guidance + cite the wiki table.
+   Closes the "off-store can't backfill" gap. **Action:** confirm you want this.
+
+3. **INFO — ready-made coarse properties source for the faceted feature (#6).** The
+   wiki drying table also carries star ratings (1-5★) per material type for **HDT,
+   impact resistance, tensile strength**. I deliberately left these OUT of the
+   Drying guide. They're a quick starting layer for the future comparison feature.
+
+4. **LOW — cross-source drying differences (expected, not a bug).** Generic guide
+   vs per-product can differ slightly (e.g. PLA generic 55 °C/8 h oven vs PLA Basic
+   TDS 50 °C/8 h). The guide is labelled "general by type," so this is fine — but if
+   we ever want them reconciled, that's a pass. Also: the wiki drying table has no
+   **X1 heatbed** column, whereas per-product `dryBeforeUse` strings do — per-product
+   is richer there.
+
+5. **LOW — taxonomy mismatches to keep in mind.** Wiki plate table uses "Smooth PEI /
+   High-Temperature Plate" (no catalog plate id; we have textured-pei/cool-plate/
+   supertack/engineering) and lists no SuperTack. Wiki also references **PET** as a
+   material type, which isn't in `materials.yaml` (PET-CF currently lands in "Other").
+   Only matters if we later map the guides to per-product plate/material ids.
+
+### Nothing needs fetching right now
+The webarchive had everything. Future fetches I'll need when we get to them:
+the **engineering-tier store pages** (PC/PA/PPS) if we fill those per-product, and
+the **H2D temp-mix override wiki article** for the co-print / `temperatureClass`
+guide (item 6 in deferred fields).
+
+---
+
 ## Catalog vs. current US store (checked 2026-06-06)
 
 Real but **no current US-store page** (store cautions block unavailable → AMS must
