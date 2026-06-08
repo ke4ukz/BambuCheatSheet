@@ -73,7 +73,7 @@ const compareProducts = computed(() =>
 // out the width). Bools render as emoji; tap any cell for the value + source.
 const COMPARE_EXCLUDE = new Set([
   'nozzleTemp', 'firstLayerNozzleTemp', 'bedTemp', 'firstLayerBedTemp',
-  'chamberTemp', 'dryBeforeUse',
+  'chamberTemp', 'dryBeforeUse', 'maxVolumetricSpeed',
 ])
 const compareGroups = computed(() => {
   const byGroup = new Map()

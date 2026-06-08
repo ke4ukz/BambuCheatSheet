@@ -563,6 +563,17 @@ footer a:hover {
   grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
   gap: 0.1rem 1rem;
 }
+.compare-candidates .check {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text);
+  padding: 0.15rem 0;
+}
+.compare-candidates .check input {
+  flex: none;
+}
 .compare-table-wrap {
   overflow-x: auto;
 }
