@@ -23,3 +23,9 @@ sources:
       engineering:
         bedTemp: { min: 30, max: 35 }
         adhesion: { required: true, types: [liquid-glue] }
+  - source:
+      label: Bambu Lab Wiki — Filament Guide (material table, general by type)
+      url: https://wiki.bambulab.com/en/general/filament-guide-material-table
+    # Off-store (no product page); AMS from the general material table by type:
+    # TPU -> AMS Unavailable. (TPU for AMS / TPU 95A HF are the AMS-capable variants.)
+    amsCompatible: false

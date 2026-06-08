@@ -42,3 +42,9 @@ sources:
         bedTemp: 40
         firstLayerBedTemp: 40
         adhesion: { required: false, types: [] }
+  - source:
+      label: Bambu Lab Wiki — Filament Guide (material table, general by type)
+      url: https://wiki.bambulab.com/en/general/filament-guide-material-table
+    # Off-store (no product page); AMS from the general material table by type:
+    # PLA -> AMS Available.
+    amsCompatible: true
