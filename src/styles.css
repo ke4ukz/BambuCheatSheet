@@ -295,6 +295,26 @@ button.ghost {
   color: var(--muted);
 }
 
+.selection-head {
+  margin: 0.5rem 0 1rem;
+}
+.sel-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.4rem;
+  margin: 0;
+}
+.sel-summary {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin: 0.25rem 0 0;
+}
+.inline-star {
+  font-size: 1rem;
+  padding: 0 0.3rem;
+}
+
 .warning {
   background: rgba(224, 168, 0, 0.12);
   border: 1px solid var(--warn);

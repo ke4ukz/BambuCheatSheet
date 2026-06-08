@@ -192,6 +192,16 @@ const nozzle = computed(() => {
   }
 })
 
+// Plain-language summary of the current selection, e.g.
+// "on Textured PEI Plate with a 0.4 mm high-flow Stainless Steel nozzle".
+const selectionSummary = computed(() => {
+  if (!selectedProduct.value) return ''
+  const plate = plates.find((pl) => pl.id === plateId.value)?.label ?? plateId.value
+  const type = nozzleTypes.find((x) => x.id === nozzleType.value)?.label ?? ''
+  const hf = highFlowNozzle.value ? 'high-flow ' : ''
+  return `on ${plate} with a ${nozzleSize.value} mm ${hf}${type} nozzle`
+})
+
 const warnings = computed(() =>
   selectedProduct.value ? nozzleWarnings(selectedProduct.value, nozzle.value) : []
 )
@@ -426,6 +436,19 @@ function formatValue(param, value) {
     <p v-if="!selectedProduct" class="empty">No filament selected.</p>
 
     <template v-else>
+      <div class="selection-head">
+        <h2 class="sel-title">
+          {{ selectedProduct.manufacturer }} — {{ selectedProduct.name }}
+          <button
+            class="star inline-star"
+            :class="{ on: isFavorite(productId) }"
+            :title="isFavorite(productId) ? 'Remove from favorites' : 'Add to favorites'"
+            @click="toggleFavorite(productId)"
+          >{{ isFavorite(productId) ? '★' : '☆' }}</button>
+        </h2>
+        <p class="sel-summary">{{ selectionSummary }}</p>
+      </div>
+
       <div v-for="w in warnings" :key="w" class="warning">⚠ {{ w }}</div>
       <div v-if="unsupported" class="warning">
         ⚠ This plate is marked as not recommended for this filament.
