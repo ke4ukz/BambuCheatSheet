@@ -390,6 +390,12 @@ button.ghost {
   position: relative;
 }
 
+/* Favorites-only sits on its own full-width line below the selector dropdowns. */
+.fav-row {
+  grid-column: 1 / -1;
+  position: relative;
+}
+
 .with-star select {
   flex: 1;
 }

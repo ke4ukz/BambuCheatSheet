@@ -338,39 +338,13 @@ function formatValue(param, value) {
         </select>
       </label>
 
-      <label class="check inline">
-        <input type="checkbox" v-model="favoritesOnly" @change="reconcileSelection" />
-        <span>★ Favorites only</span>
-      </label>
-
       <label>
         <span>Filament</span>
-        <div class="with-star">
-          <select v-model="productId">
-            <option v-for="p in filteredProducts" :key="p.id" :value="p.id">
-              {{ isFavorite(p.id) ? '★ ' : '' }}{{ p.manufacturer }} — {{ p.name }}
-            </option>
-          </select>
-          <button
-            v-if="selectedProduct"
-            class="star"
-            :class="{ on: isFavorite(productId) }"
-            :title="isFavorite(productId) ? 'Remove from favorites' : 'Add to favorites'"
-            @click="toggleFavorite(productId)"
-          >
-            {{ isFavorite(productId) ? '★' : '☆' }}
-          </button>
-          <div v-if="tourStep === 3" class="tour-pop tour-pop-below tour-pop-right" role="dialog">
-            <p>Star a filament to favorite it, then use <strong>★ Favorites only</strong> above to filter the list to just those.</p>
-            <div class="tour-foot">
-              <span class="tour-count">3 / {{ TOUR_STEPS }}</span>
-              <span class="tour-actions">
-                <button class="tour-skip" @click="endTour">Dismiss</button>
-                <button class="tour-next" @click="nextStep">Done</button>
-              </span>
-            </div>
-          </div>
-        </div>
+        <select v-model="productId">
+          <option v-for="p in filteredProducts" :key="p.id" :value="p.id">
+            {{ isFavorite(p.id) ? '★ ' : '' }}{{ p.manufacturer }} — {{ p.name }}
+          </option>
+        </select>
       </label>
 
       <label>
@@ -398,6 +372,23 @@ function formatValue(param, value) {
         <input type="checkbox" v-model="highFlowNozzle" />
         <span>High-flow nozzle</span>
       </label>
+
+      <div class="fav-row param-wrap">
+        <label class="check inline">
+          <input type="checkbox" v-model="favoritesOnly" @change="reconcileSelection" />
+          <span>★ Favorites only</span>
+        </label>
+        <div v-if="tourStep === 3" class="tour-pop tour-pop-below" role="dialog">
+          <p>Favorite a filament with the ★ next to its name in the results, then tick <strong>★ Favorites only</strong> here to filter the list.</p>
+          <div class="tour-foot">
+            <span class="tour-count">3 / {{ TOUR_STEPS }}</span>
+            <span class="tour-actions">
+              <button class="tour-skip" @click="endTour">Dismiss</button>
+              <button class="tour-next" @click="nextStep">Done</button>
+            </span>
+          </div>
+        </div>
+      </div>
     </section>
 
     <div v-if="selectedProduct" class="compare-add-bar">
