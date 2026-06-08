@@ -14,12 +14,16 @@ glues:
         url: https://us.store.bambulab.com/products/liquid-glue-for-build-plate
       - label: Bambu Lab Wiki — How to use Bambu Lab Liquid Glue
         url: https://wiki.bambulab.com/en/general/how-to-use-bbl-liquid-glue
+      - label: Bambu Lab Wiki — Filament Guide (material table)
+        url: https://wiki.bambulab.com/en/general/filament-guide-material-table
     plateCompatibility: All Bambu Lab build plates
     # Materials Bambu explicitly lists (store + wiki agree). Catalog material ids
-    # only; sources also list PET (not a catalog material). PC/PA NOT listed —
-    # see inference.
+    # only; sources also list PET (not a catalog material). PC/PA explicitly
+    # "Not Recommended" — see note.
     materials: [PLA, PETG, ABS, ASA, TPU]
-    materialsNote: Store and wiki also list PET. Neither lists PC or PA.
+    materialsNote: >-
+      Store and wiki also list PET. The wiki material table marks Liquid Glue
+      "Not Recommended" for PC and PA (use Glue Stick instead).
     # Recommended hotbed temperature when using this glue, per material (store).
     bedTempByMaterial:
       PLA: { min: 40, max: 60 }
@@ -36,15 +40,13 @@ glues:
     specs:
       packageVolume: 60 mL
       workingLife: ~100 full-plate coats
-    # NOT stated by Bambu — inference only. PC/PA are absent from the material
-    # list while the recommended-temp table tops out at 100 C (PET/ABS/ASA);
-    # PC/PA print on hotter beds (~100-110 C). The omission is most likely an
-    # effective-temperature ceiling, not chemical incompatibility — read it as
-    # "not recommended for the highest-temp materials," not "will not adhere."
+    # The FACT (Liquid Glue not for PC/PA) is now sourced in materialsNote via the
+    # wiki material table. What remains below is only our REASONING for *why* —
+    # that part is still an inference, not a Bambu statement.
     inference: >-
-      Likely a temperature ceiling rather than incompatibility: liquid glue is not
-      listed for PC/PA, whose bed temps exceed the ~100 C top of its recommended
-      range. Inference, not a Bambu claim.
+      Likely reason: a temperature ceiling rather than chemical incompatibility —
+      PC/PA print on beds (~100-120 C) above Liquid Glue's recommended range, while
+      Glue Stick is rated to those temps. (Our reasoning, not a Bambu statement.)
 
   - id: glue-stick
     label: Glue stick
@@ -54,13 +56,26 @@ glues:
         url: https://us.store.bambulab.com/products/glue-stick-for-build-plate
       - label: Bambu Lab Wiki — How to use Bambu Lab Liquid Glue
         url: https://wiki.bambulab.com/en/general/how-to-use-bbl-liquid-glue
+      - label: Bambu Lab Wiki — Filament Guide (material table)
+        url: https://wiki.bambulab.com/en/general/filament-guide-material-table
     plateCompatibility: All Series
     # Covers the high-temp materials (PC, PA) that liquid glue omits; wiki calls
     # out PC/PA suitability specifically.
     materials: [PLA, ABS, PETG, PC, PA, TPU]
     materialsNote: >-
-      Wiki highlights suitability for PC and PA. A regular glue stick can also be
-      applied to ease removal of high-adhesion filaments.
+      Works across the full range incl. PC and PA, where Liquid Glue is not
+      recommended. A regular glue stick can also be applied to ease removal of
+      high-adhesion filaments.
+    # Bed temps (with glue) per material, from the wiki material table.
+    bedTempByMaterial:
+      PLA: { min: 35, max: 65 }
+      PETG: { min: 60, max: 80 }
+      PET: { min: 80, max: 100 }
+      TPU: { min: 30, max: 45 }
+      ABS: { min: 90, max: 100 }
+      ASA: { min: 90, max: 100 }
+      PA: { min: 90, max: 110 }
+      PC: { min: 100, max: 120 }
     features:
       - Water dissolvable
       - Formaldehyde-free
