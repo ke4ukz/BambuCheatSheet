@@ -42,8 +42,47 @@ const showX2dFull = ref(false)
 const view = ref('lookup')
 // Back navigation: glue is a sub-page of the guides hub; everything else
 // returns to the main lookup.
-const BACK_TARGET = { glue: 'guides', guide: 'guides', guides: 'lookup', sources: 'lookup' }
+const BACK_TARGET = { glue: 'guides', guide: 'guides', guides: 'lookup', sources: 'lookup', compare: 'lookup' }
 const goBack = () => (view.value = BACK_TARGET[view.value] ?? 'lookup')
+
+// --- Compare view: filter the list, pick a few filaments, compare fields ----
+const brands = [...new Set(products.map((p) => p.manufacturer))].sort()
+const compareMaterial = ref('')
+const compareBrand = ref('')
+const compareQuery = ref('')
+const comparePlate = ref(plates[0]?.id ?? '')
+const compareSelected = ref([])
+function toggleCompare(id) {
+  const i = compareSelected.value.indexOf(id)
+  if (i >= 0) compareSelected.value.splice(i, 1)
+  else compareSelected.value.push(id)
+}
+const compareCandidates = computed(() =>
+  products.filter(
+    (p) =>
+      (!compareMaterial.value || p.material === compareMaterial.value) &&
+      (!compareBrand.value || p.manufacturer === compareBrand.value) &&
+      (!compareQuery.value ||
+        `${p.manufacturer} ${p.name}`.toLowerCase().includes(compareQuery.value.trim().toLowerCase()))
+  )
+)
+const compareProducts = computed(() =>
+  compareSelected.value.map((id) => products.find((p) => p.id === id)).filter(Boolean)
+)
+// All parameters, grouped (compare shows everything, ignoring the lookup's filter).
+const compareGroups = computed(() => {
+  const byGroup = new Map()
+  for (const param of parameters) {
+    if (!byGroup.has(param.group)) byGroup.set(param.group, [])
+    byGroup.get(param.group).push(param)
+  }
+  return [...byGroup.entries()].map(([group, params]) => ({ group, params }))
+})
+function compareCell(product, param) {
+  const groups = resolveParameter(product, param, comparePlate.value)
+  if (!groups.length) return '—'
+  return groups.map((g) => formatValue(param, g.value)).join(' / ')
+}
 const sourceGroups = collectSources(products, [
   { source: x2dSource, productIds: x2dProductIds },
 ])
@@ -205,6 +244,7 @@ function formatValue(param, value) {
       <h1>Bambu Cheat Sheet</h1>
       <div class="nav">
         <button v-if="view !== 'lookup'" class="ghost" @click="goBack()">← Back</button>
+        <button v-if="view === 'lookup'" class="ghost" @click="view = 'compare'">Compare</button>
         <button v-if="view === 'lookup'" class="ghost" @click="view = 'guides'">Guides</button>
         <button v-if="view === 'lookup'" class="ghost" @click="view = 'sources'">Sources</button>
       </div>
@@ -452,6 +492,74 @@ function formatValue(param, value) {
           </li>
         </ul>
       </div>
+    </section>
+
+    <section v-else-if="view === 'compare'" class="card compare-page">
+      <h2>Compare filaments</h2>
+      <p class="sources-intro">
+        Filter the list, tick a few filaments (3-5 works best), and compare their
+        parameters side by side. Bed temp &amp; adhesion use the plate you pick.
+      </p>
+      <div class="compare-filters">
+        <label>
+          <span>Material</span>
+          <select v-model="compareMaterial">
+            <option value="">All</option>
+            <option v-for="m in materials" :key="m.id" :value="m.id">{{ m.label }}</option>
+          </select>
+        </label>
+        <label>
+          <span>Brand</span>
+          <select v-model="compareBrand">
+            <option value="">All</option>
+            <option v-for="b in brands" :key="b" :value="b">{{ b }}</option>
+          </select>
+        </label>
+        <label>
+          <span>Search</span>
+          <input type="text" v-model="compareQuery" placeholder="name…" autocomplete="off" />
+        </label>
+        <label>
+          <span>Plate</span>
+          <select v-model="comparePlate">
+            <option v-for="pl in plates" :key="pl.id" :value="pl.id">{{ pl.label }}</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="compare-candidates">
+        <label v-for="p in compareCandidates" :key="p.id" class="check">
+          <input type="checkbox" :checked="compareSelected.includes(p.id)" @change="toggleCompare(p.id)" />
+          <span>{{ p.manufacturer }} — {{ p.name }}</span>
+        </label>
+        <p v-if="!compareCandidates.length" class="muted">No filaments match those filters.</p>
+      </div>
+
+      <p v-if="!compareProducts.length" class="empty">Tick filaments above to compare them.</p>
+      <div v-else class="compare-table-wrap">
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th v-for="p in compareProducts" :key="p.id">
+                <span class="cmp-mfr">{{ p.manufacturer }}</span>
+                <span class="cmp-name">{{ p.name }}</span>
+                <button class="cmp-x" title="Remove" @click="toggleCompare(p.id)">✕</button>
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            <template v-for="block in compareGroups" :key="block.group">
+              <tr class="cmp-group"><th :colspan="compareProducts.length + 1">{{ block.group }}</th></tr>
+              <tr v-for="param in block.params" :key="param.key">
+                <th class="cmp-param">{{ param.label }}</th>
+                <td v-for="p in compareProducts" :key="p.id">{{ compareCell(p, param) }}</td>
+              </tr>
+            </template>
+          </tbody>
+        </table>
+      </div>
+      <p class="legend muted">“—” means no data from the listed sources (unknown), not “none”.</p>
     </section>
 
     <section v-else-if="view === 'guides'" class="card guides-page">

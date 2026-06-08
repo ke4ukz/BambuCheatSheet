@@ -538,6 +538,88 @@ footer a:hover {
   font-size: 0.78rem;
 }
 
+/* Compare view */
+.compare-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 0.85rem;
+}
+.compare-filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-size: 0.8rem;
+  color: var(--muted);
+}
+.compare-candidates {
+  max-height: 11rem;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 0.5rem 0.7rem;
+  margin-bottom: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.1rem 1rem;
+}
+.compare-table-wrap {
+  overflow-x: auto;
+}
+.compare-table {
+  border-collapse: collapse;
+  font-size: 0.82rem;
+}
+.compare-table th,
+.compare-table td {
+  border: 1px solid var(--border);
+  padding: 0.4rem 0.7rem;
+  text-align: left;
+  vertical-align: top;
+  white-space: nowrap;
+}
+.compare-table thead th {
+  background: var(--card);
+  position: sticky;
+  top: 0;
+}
+.cmp-mfr {
+  display: block;
+  color: var(--muted);
+  font-size: 0.72rem;
+  font-weight: normal;
+}
+.cmp-name {
+  display: block;
+  font-weight: 600;
+}
+.cmp-x {
+  background: none;
+  border: none;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.7rem;
+  padding: 0;
+  margin-top: 0.15rem;
+}
+.cmp-x:hover {
+  color: var(--accent);
+}
+.cmp-group th {
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+.cmp-param {
+  color: var(--muted);
+  font-weight: 600;
+  position: sticky;
+  left: 0;
+  background: var(--card);
+}
+
 /* Guides hub */
 .guides-list {
   list-style: none;
