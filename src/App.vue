@@ -69,20 +69,46 @@ const compareCandidates = computed(() =>
 const compareProducts = computed(() =>
   compareSelected.value.map((id) => products.find((p) => p.id === id)).filter(Boolean)
 )
-// All parameters, grouped (compare shows everything, ignoring the lookup's filter).
+// Compare omits print temps and drying (not useful side-by-side, and they blow
+// out the width). Bools render as emoji; tap any cell for the value + source.
+const COMPARE_EXCLUDE = new Set([
+  'nozzleTemp', 'firstLayerNozzleTemp', 'bedTemp', 'firstLayerBedTemp',
+  'chamberTemp', 'dryBeforeUse',
+])
 const compareGroups = computed(() => {
   const byGroup = new Map()
   for (const param of parameters) {
+    if (COMPARE_EXCLUDE.has(param.key)) continue
     if (!byGroup.has(param.group)) byGroup.set(param.group, [])
     byGroup.get(param.group).push(param)
   }
   return [...byGroup.entries()].map(([group, params]) => ({ group, params }))
 })
+// Compact glyph for a cell: ✅/❌ for bools/adhesion, ⚠️ when sources disagree,
+// short text for numbers/sizes, — when unknown.
 function compareCell(product, param) {
   const groups = resolveParameter(product, param, comparePlate.value)
   if (!groups.length) return '—'
-  return groups.map((g) => formatValue(param, g.value)).join(' / ')
+  if (groups.length > 1) return '⚠️'
+  const v = groups[0].value
+  if (param.type === 'bool') return v ? '✅' : '❌'
+  if (param.type === 'adhesion') return v?.required ? '✅' : '❌'
+  return formatValue(param, v)
 }
+// Tap a cell → popover with the full value(s) + clickable sources.
+const cellDetail = ref(null)
+function openCellDetail(product, param) {
+  const groups = resolveParameter(product, param, comparePlate.value)
+  if (!groups.length) return
+  cellDetail.value = {
+    product: `${product.manufacturer} — ${product.name}`,
+    label: param.label,
+    items: groups.map((g) => ({ text: formatValue(param, g.value), sources: g.sources })),
+  }
+}
+const closeCellDetail = () => (cellDetail.value = null)
+const clearCompare = () => (compareSelected.value = [])
+const inComparison = computed(() => compareSelected.value.includes(productId.value))
 const sourceGroups = collectSources(products, [
   { source: x2dSource, productIds: x2dProductIds },
 ])
@@ -364,6 +390,15 @@ function formatValue(param, value) {
       </label>
     </section>
 
+    <div v-if="selectedProduct" class="compare-add-bar">
+      <button class="ghost small" @click="toggleCompare(productId)">
+        {{ inComparison ? '✓ In comparison' : '+ Add to comparison' }}
+      </button>
+      <button v-if="compareSelected.length" class="link-btn" @click="view = 'compare'">
+        Compare ({{ compareSelected.length }}) →
+      </button>
+    </div>
+
     <div class="param-wrap param-bar">
       <button class="ghost" @click="showSettings = !showSettings; endTour()">
         {{ showSettings ? 'Done' : 'Filter parameters' }}
@@ -535,6 +570,11 @@ function formatValue(param, value) {
         <p v-if="!compareCandidates.length" class="muted">No filaments match those filters.</p>
       </div>
 
+      <div v-if="compareProducts.length" class="compare-actions">
+        <span class="muted">{{ compareProducts.length }} selected</span>
+        <button class="ghost small" @click="clearCompare">Clear all</button>
+      </div>
+
       <p v-if="!compareProducts.length" class="empty">Tick filaments above to compare them.</p>
       <div v-else class="compare-table-wrap">
         <table class="compare-table">
@@ -553,13 +593,23 @@ function formatValue(param, value) {
               <tr class="cmp-group"><th :colspan="compareProducts.length + 1">{{ block.group }}</th></tr>
               <tr v-for="param in block.params" :key="param.key">
                 <th class="cmp-param">{{ param.label }}</th>
-                <td v-for="p in compareProducts" :key="p.id">{{ compareCell(p, param) }}</td>
+                <td v-for="p in compareProducts" :key="p.id">
+                  <button
+                    v-if="compareCell(p, param) !== '—'"
+                    class="cmp-cell"
+                    @click="openCellDetail(p, param)"
+                  >{{ compareCell(p, param) }}</button>
+                  <span v-else class="muted">—</span>
+                </td>
               </tr>
             </template>
           </tbody>
         </table>
       </div>
-      <p class="legend muted">“—” means no data from the listed sources (unknown), not “none”.</p>
+      <p v-if="compareProducts.length" class="legend muted">
+        ✅ yes · ❌ no · ⚠️ sources differ · tap any cell for the value &amp; source.
+        “—” = no data (unknown), not “none”.
+      </p>
     </section>
 
     <section v-else-if="view === 'guides'" class="card guides-page">
@@ -652,6 +702,23 @@ function formatValue(param, value) {
         </p>
       </div>
     </section>
+
+    <div v-if="cellDetail" class="cmp-modal-backdrop" @click="closeCellDetail">
+      <div class="cmp-modal" @click.stop>
+        <button class="cmp-modal-x" @click="closeCellDetail" aria-label="Close">✕</button>
+        <p class="cmp-modal-product">{{ cellDetail.product }}</p>
+        <h3>{{ cellDetail.label }}</h3>
+        <div v-for="(item, i) in cellDetail.items" :key="i" class="cmp-modal-item">
+          <span class="cmp-modal-val">{{ item.text }}</span>
+          <span class="src">
+            <template v-for="(s, j) in item.sources" :key="j"
+              ><a v-if="s.url" :href="s.url" target="_blank" rel="noopener">{{ s.label }}</a
+              ><span v-else>{{ s.label }}</span
+              ><span v-if="j < item.sources.length - 1">, </span></template>
+          </span>
+        </div>
+      </div>
+    </div>
 
     <footer>
       <p>Reference only — not for direct printer use. Always verify against the manufacturer.</p>

@@ -619,6 +619,98 @@ footer a:hover {
   left: 0;
   background: var(--card);
 }
+.cmp-cell {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font: inherit;
+  padding: 0;
+  color: var(--text);
+  border-bottom: 1px dotted var(--border);
+}
+.cmp-cell:hover {
+  color: var(--accent);
+}
+.compare-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.6rem;
+}
+.compare-add-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin: 0.25rem 0 1rem;
+}
+.ghost.small {
+  padding: 0.25rem 0.6rem;
+  font-size: 0.8rem;
+}
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--accent);
+  cursor: pointer;
+  font: inherit;
+  font-size: 0.85rem;
+  padding: 0;
+}
+.link-btn:hover {
+  text-decoration: underline;
+}
+
+/* Compare cell-detail popover */
+.cmp-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 50;
+  padding: 1rem;
+}
+.cmp-modal {
+  position: relative;
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.1rem 1.25rem;
+  max-width: 28rem;
+  width: 100%;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+}
+.cmp-modal h3 {
+  margin: 0.1rem 0 0.6rem;
+  font-size: 1.05rem;
+}
+.cmp-modal-product {
+  color: var(--muted);
+  font-size: 0.8rem;
+  margin: 0;
+}
+.cmp-modal-x {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  background: none;
+  border: none;
+  color: var(--muted);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.cmp-modal-x:hover {
+  color: var(--accent);
+}
+.cmp-modal-item {
+  padding: 0.4rem 0;
+  border-top: 1px solid var(--border);
+}
+.cmp-modal-val {
+  display: block;
+  font-weight: 600;
+}
 
 /* Guides hub */
 .guides-list {
