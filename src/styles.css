@@ -55,8 +55,15 @@ h2 {
 
 .selectors {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  /* Row 1: material / filament / build plate. Row 2: nozzle size / type /
+     high-flow. Favorites-only spans its own full-width row below. */
+  grid-template-columns: repeat(3, 1fr);
   gap: 0.75rem;
+}
+@media (max-width: 560px) {
+  .selectors {
+    grid-template-columns: 1fr;
+  }
 }
 
 label {
